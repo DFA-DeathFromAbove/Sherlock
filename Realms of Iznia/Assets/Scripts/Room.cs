@@ -20,7 +20,7 @@ public class Room : MonoBehaviour{
 	public string desc;
 	public bool isActive = false;
 	
-	private List<Monster> monsters = new List<Monster>();
+	private List<NPC> npcs = new List<NPC>();
 	
 	private Text locationText;
 	private Text locationTitle;
@@ -39,26 +39,26 @@ public class Room : MonoBehaviour{
 		FindObjects();
 	}
 	
-	public void AddMonster(string monster, int difficulty)
+	public void AddNPC(string npc)
 	{
-		monsters.Add(gameObject.AddComponent<Monster>());
-		monsters[monsters.OfType<Monster>().Count()-1].SetupMonster(monster, difficulty, this);
+		npcs.Add(gameObject.AddComponent<NPC>());
+		npcs[npcs.OfType<NPC>().Count()-1].SetupNPC(npc, this);
 	}
 	
-	public string SeeMonsters()
+	public string SeeNPCs()
 	{
 		string returnedString = "";
-		if(monsters.Count > 0)
+		if(npcs.Count > 0)
 		{
 			returnedString = "You see: ";
-			foreach(Monster monster in monsters)
+			foreach(NPC npc in npcs)
 			{
-				if(monster != null)
+				if(npc != null)
 				{
-					if(monster == monsters.ElementAt(monsters.OfType<Monster>().Count()-1))
+					if(npc == npcs.ElementAt(npcs.OfType<NPC>().Count()-1))
 						returnedString += "and ";
-					returnedString += "a " + monster.monsterName;
-					if(monster == monsters.ElementAt(monsters.OfType<Monster>().Count()-1))
+					returnedString += "a " + npc.npcName;
+					if(npc == npcs.ElementAt(npcs.OfType<NPC>().Count()-1))
 						returnedString += ".";
 					else
 						returnedString += ", ";
@@ -72,16 +72,16 @@ public class Room : MonoBehaviour{
 		return returnedString;
 	}
 	
-	public List<Monster> GetMonsters()
+	public List<NPC> GetNPCs()
 	{
-		return monsters;
+		return npcs;
 	}
 	
-	public void DeleteMonster(Monster monster)
+	public void DeleteNPC(NPC npc)
 	{
-		if(monsters.Contains(monster))
+		if(npcs.Contains(npcs))
 		{
-			monsters.Remove(monster);
+			npcs.Remove(npc);
 		}
 	}
 	

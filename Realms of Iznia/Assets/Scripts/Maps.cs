@@ -80,7 +80,7 @@ public class Maps : MonoBehaviour {
 		startingFarm[3].title = "Abandoned Farmhouse - Master Bedroom";
 		startingFarm[3].desc = "Devoid of any rememberance of comfort that once was, this once haven of sweet dreams has become a haven for termites and vagabonds.  It appears that someone has slept here recently.";
 		startingFarm[3].down = startingFarm[0];
-		startingFarm[3].AddMonster("black rat", 1);
+		startingFarm[3].AddNPC("Jon", 1);
 		
 		startingFarm[4].title = "Abandoned Farmhouse - Pantry";
 		startingFarm[4].desc = "Rotted meat lays strewn across the moldy floor.  A waft of warm air lifts upwards, making you gag and choke.";
