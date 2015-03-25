@@ -3,13 +3,20 @@ using System.Collections;
 
 public class Interactable : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	private TextController textController;
 	
+	public string objectName = "";
+	
+	public void Awake()
+	{
+		textController = GameObject.Find("Scripts").GetComponent<TextController>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void SetupObject(string name)
+	{
+		if(name.ToLower() == "door")
+		{
+			objectName = "Door";
+		}
 	}
 }

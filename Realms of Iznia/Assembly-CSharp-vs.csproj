@@ -46,17 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BodyPart.cs" />
      <Compile Include="Assets\Scripts\Commands.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\Maps.cs" />
-     <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
      <Compile Include="Assets\Scripts\RoomNode.cs" />
-     <Compile Include="Assets\Scripts\Skill.cs" />
      <Compile Include="Assets\Scripts\TextController.cs" />
-     <Compile Include="Assets\Scripts\Wound.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

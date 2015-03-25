@@ -35,19 +35,6 @@ public class Commands : MonoBehaviour {
 				}
 			}
 		}
-		for(int i = 0; i < attacks.Length; i++)
-		{
-			if(attacks[i] != null)
-			{
-				if(attacks[i].Length >= input.Length)
-				{
-					if(attacks[i].Substring(0,input.Length) == input)
-					{
-						return attacks[i];
-					}
-				}
-			}
-		}
 		for(int i = 0; i < commands.Length; i++)
 		{
 			if(commands[i] != null)
@@ -73,17 +60,17 @@ public class Commands : MonoBehaviour {
 //		}
 //	}
 
-	public Monster FindMonster(string input)
+	public NPC FindNPC(string input)
 	{
-		if(maps.ActiveRoom().GetMonsters().Count > 0)
+		if(maps.ActiveRoom().GetNPCs().Count > 0)
 		{
-			foreach(Monster monster in maps.ActiveRoom().GetMonsters())
+			foreach(NPC NPC in maps.ActiveRoom().GetNPCs())
 			{
-				if(monster.monsterName.Length >= input.Length)
+				if(NPC.npcName.Length >= input.Length)
 				{
-					if(monster.monsterName.Contains(input)) //TODO: change from contains to match only the start of the monsterName ('at' should not find 'rat' in 'black rat')
+					if(NPC.npcName.Contains(input)) //TODO: change from contains to match only the start of the monsterName ('at' should not find 'rat' in 'black rat')
 					{
-						return monster;
+						return npc;
 					}
 				}
 			}
@@ -92,6 +79,22 @@ public class Commands : MonoBehaviour {
 		else
 		{
 			return null;
+		}
+	}
+	
+	public string FindSyn(string input)
+	{
+		if(input == "go" || input == "walk")
+		{
+			return "move";
+		}
+		if(input == "forage")
+		{
+			return "search";
+		}
+		if(input == "ask")
+		{
+			return "question";
 		}
 	}
 	
@@ -105,15 +108,11 @@ public class Commands : MonoBehaviour {
 		cardinals[5] = "down";
 		
 		commands[0] = "look";
-		commands[1] = "go";
-		commands[2] = "get";
-		commands[3] = "attack";
-		commands[4] = "move";
-		commands[5] = "yes";
-		commands[6] = "no";
-		commands[7] = "find";
-		commands[8] = "forage";
-		
-		attacks[0] = "punch";
+		commands[1] = "get";
+		commands[2] = "question";
+		commands[3] = "move";
+		commands[4] = "yes";
+		commands[5] = "no";
+		commands[6] = "find";
 	}
 }
