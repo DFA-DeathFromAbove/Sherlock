@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TextController.cs">
+    <Files>
+      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\Bubble.cs" Line="1" Column="1" />
+      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\BubbleGen.cs" Line="1" Column="1" />
+      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\Sprayer.cs" Line="1" Column="1" />
+      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\Caster.cs" Line="1" Column="1" />
+      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\PlayerInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TextController.cs" Line="91" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
