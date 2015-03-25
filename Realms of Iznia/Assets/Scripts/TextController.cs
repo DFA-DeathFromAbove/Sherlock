@@ -152,6 +152,11 @@ public class TextController : MonoBehaviour {
 				return;
 			}
 		}
+		if (gameState == "Conversation")
+		{
+
+		}
+
 		if(gameState == "Reset")
 		{
 			if(mainIn.text.ToLower() == "yes")

@@ -1,13 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TextController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Commands.cs">
     <Files>
-      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\Bubble.cs" Line="1" Column="1" />
-      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\BubbleGen.cs" Line="1" Column="1" />
-      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\Sprayer.cs" Line="1" Column="1" />
-      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\Caster.cs" Line="1" Column="1" />
-      <File FileName="..\BubbleMatch\BubblePop\Assets\Scripts\PlayerInput.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TextController.cs" Line="91" Column="30" />
+      <File FileName="Assets\Scripts\TextController.cs" Line="350" Column="5" />
+      <File FileName="Assets\Scripts\NPC.cs" Line="31" Column="30" />
+      <File FileName="Assets\Scripts\Monster.cs" Line="86" Column="18" />
+      <File FileName="Assets\Scripts\Commands.cs" Line="18" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
