@@ -308,6 +308,38 @@ public class TextController : MonoBehaviour {
 					return;
 				}
 			}
+			if(commands.FindCommand(inputArray[0]) == "question")
+			{
+				if(inputArray.Count() <= 1)
+				{
+					AppendMain("Question who?");
+					return;
+				}
+				if(inputArray.Count() == 1)
+				{
+					if(commands.FindNPC(inputArray[1]) != null)
+					{
+						AppendMain(commands.FindNPC(inputArray[1]).GetInfo());
+						return;
+					}
+					else
+					{
+						AppendMain("That person is not here.");
+					}
+				}
+				if(inputArray.Count() > 1)
+				{
+					if(commands.FindNPC(inputArray[1]) != null)
+					{
+						commands.FindNPC(inputArray[1]).AskAbout(inputArray[2]);
+						return;
+					}
+					else
+					{
+						AppendMain("That person is not here.");
+					}
+				}
+			}
 		}
 	}
 	

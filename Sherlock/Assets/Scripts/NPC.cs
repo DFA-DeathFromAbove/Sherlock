@@ -14,11 +14,22 @@ public class NPC : MonoBehaviour {
 
 	public void SetupNPC(string name)
 	{
-		npcName = name;
-		dialogue [0, 0] = "";
-		dialogue [0, 1] = "I don't know anything about";
-		dialogue [1, 0] = "hello";
-		dialogue [1, 1] = "Hello, how are you?";
+		if(name.ToLower() == "jon")
+		{
+			npcName = name;
+			dialogue [0, 0] = "";
+			dialogue [0, 1] = "I don't know anything about";
+			dialogue [1, 0] = "hello";
+			dialogue [1, 1] = "Hello, how are you?";
+		}
+		if(name.ToLower() == "greg")
+		{
+			npcName = name;
+			dialogue [0, 0] = "";
+			dialogue [0, 1] = "What are you talking about? I know nothing about ";
+			dialogue [1, 0] = "hello";
+			dialogue [1, 1] = "What do you want? Can't you see I'm busy?";
+		}
 	}
 
 	public void AskAbout(string input)
@@ -43,6 +54,12 @@ public class NPC : MonoBehaviour {
 	{
 		//TODO: Add actual function
 		return "This is a dummy description.";
+	}
+
+	public string GetInfo()
+	{
+		//ToDo: add individualized responses
+		return "I don't know much.";
 	}
 
 	private void Response(int location, string input)

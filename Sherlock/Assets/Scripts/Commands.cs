@@ -93,7 +93,7 @@ public class Commands : MonoBehaviour {
 		{
 			return "search";
 		}
-		if(input == "ask")
+		if(input == "ask" || input == "talk")
 		{
 			return "question";
 		}
