@@ -78,7 +78,7 @@ public class Maps : MonoBehaviour {
 		startingFarm[2].north = startingFarm[0];
 		
 		startingFarm[3].title = "Abandoned Farmhouse - Master Bedroom";
-		startingFarm[3].desc = "Devoid of any rememberance of comfort that once was, this once haven of sweet dreams has become a haven for termites and vagabonds.  It appears that someone has slept here recently.";
+		startingFarm[3].desc = "Devoid of any rememberance of the comfort that once was, this once haven of sweet dreams has become a haven for termites and vagabonds.  It appears that someone has slept here recently.";
 		startingFarm[3].down = startingFarm[0];
 		startingFarm[3].AddNPC("Jon");
 		startingFarm[3].AddNPC("Greg");
