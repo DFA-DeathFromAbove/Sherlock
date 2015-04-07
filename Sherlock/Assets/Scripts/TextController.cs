@@ -315,7 +315,7 @@ public class TextController : MonoBehaviour {
 					AppendMain("Question who?");
 					return;
 				}
-				if(inputArray.Count() == 1)
+				if(inputArray.Count() == 2)
 				{
 					if(commands.FindNPC(inputArray[1]) != null)
 					{
@@ -327,12 +327,20 @@ public class TextController : MonoBehaviour {
 						AppendMain("That person is not here.");
 					}
 				}
-				if(inputArray.Count() > 1)
+				if(inputArray.Count() > 2)
 				{
 					if(commands.FindNPC(inputArray[1]) != null)
 					{
-						commands.FindNPC(inputArray[1]).AskAbout(inputArray[2]);
-						return;
+						if(inputArray[2] == "about")
+						{
+							commands.FindNPC(inputArray[1]).AskAbout(inputArray[3]);
+							return;
+						}
+						else
+						{
+							commands.FindNPC(inputArray[1]).AskAbout (inputArray[2]);
+							return;
+						}
 					}
 					else
 					{
