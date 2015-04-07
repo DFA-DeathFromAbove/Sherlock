@@ -22,6 +22,7 @@ public class Commands : MonoBehaviour {
 	
 	public string FindCommand(string input)
 	{
+		input = FindSyn(input);
 		for(int i = 0; i < cardinals.Length; i++)
 		{
 			if(cardinals[i] != null)

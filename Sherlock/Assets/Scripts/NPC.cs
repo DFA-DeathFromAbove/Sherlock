@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour {
 		{
 			npcName = name;
 			dialogue [0, 0] = "";
-			dialogue [0, 1] = "I don't know anything about";
+			dialogue [0, 1] = "I don't know anything about ";
 			dialogue [1, 0] = "hello";
 			dialogue [1, 1] = "Hello, how are you?";
 		}
@@ -34,19 +34,20 @@ public class NPC : MonoBehaviour {
 
 	public void AskAbout(string input)
 	{
-		for(int i = 0; i < dialogue.Length; i++)
+		for(int i = 0; i < 2; i++) //TODO:  Method to find length of 2D Array
+		{
+			if(dialogue[i,0] != null)
 			{
-				if(dialogue[i,0] != null)
+				if(dialogue[i,0].Length >= input.Length)
 				{
-					if(dialogue[i,0].Length >= input.Length)
+					if(dialogue[i,0].Substring(0,input.Length) == input)
 					{
-						if(dialogue[i,0].Substring(0,input.Length) == input)
-						{
-							Response(i);
-						}
+						Response(i);
+						return;
 					}
 				}
-			}	
+			}
+		}	
 		Response(0, input);
 	}
 	
@@ -58,7 +59,7 @@ public class NPC : MonoBehaviour {
 
 	public string GetInfo()
 	{
-		//ToDo: add individualized responses
+		//TODO: add individualized responses
 		return "I don't know much.";
 	}
 

@@ -134,7 +134,7 @@ public class TextController : MonoBehaviour {
 		{
 			if(mainIn.text.ToLower() == "yes" || mainIn.text.ToLower() == "ye" || mainIn.text.ToLower() == "y")
 			{
-				AppendMain ("The goddess Ashmir blesses the hero, "+player.playerName+".");
+				AppendMain ("Welcome to the case, "+player.playerName+".");
 				gameState = "Default";
 				maps.SetActive("startingFarm",3);
 				playerNameText.text = player.playerName;
@@ -142,7 +142,7 @@ public class TextController : MonoBehaviour {
 			}
 			else if(mainIn.text.ToLower() == "no" || mainIn.text.ToLower() == "n")
 			{
-				AppendMain("What name do you take?");
+				AppendMain("What is your name?");
 				gameState = "New Player";
 				return;
 			}
@@ -283,9 +283,14 @@ public class TextController : MonoBehaviour {
 				}
 				if(inputArray.Count() > 1)
 				{
-					if(commands.FindNPC(inputArray[1]) != null)
+					int skip = 0;
+					if(inputArray[1].ToLower() == "at")
 					{
-						AppendMain(commands.FindNPC(inputArray[1]).GetDesc());
+						skip++;
+					}
+					if(commands.FindNPC(inputArray[1+skip]) != null)
+					{
+						AppendMain(commands.FindNPC(inputArray[1+skip]).GetDesc());
 						return;
 					}
 					else
@@ -310,6 +315,7 @@ public class TextController : MonoBehaviour {
 			}
 			if(commands.FindCommand(inputArray[0]) == "question")
 			{
+				int skip = 0;
 				if(inputArray.Count() <= 1)
 				{
 					AppendMain("Question who?");
@@ -329,8 +335,13 @@ public class TextController : MonoBehaviour {
 				}
 				if(inputArray.Count() > 2)
 				{
+					if(inputArray[2].ToLower() == "about")
+					{
+						skip++;
+					}
 					if(commands.FindNPC(inputArray[1]) != null)
 					{
+<<<<<<< HEAD
 						if(inputArray[2] == "about")
 						{
 							commands.FindNPC(inputArray[1]).AskAbout(inputArray[3]);
@@ -341,6 +352,10 @@ public class TextController : MonoBehaviour {
 							commands.FindNPC(inputArray[1]).AskAbout (inputArray[2]);
 							return;
 						}
+=======
+						commands.FindNPC(inputArray[1]).AskAbout(inputArray[2+skip]);
+						return;
+>>>>>>> origin/master
 					}
 					else
 					{
