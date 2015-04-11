@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NPC.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Commands.cs">
     <Files>
-      <File FileName="Assets\Scripts\TextController.cs" Line="345" Column="14" />
-      <File FileName="Assets\Scripts\Maps.cs" Line="81" Column="61" />
-      <File FileName="Assets\Scripts\NPC.cs" Line="63" Column="31" />
-      <File FileName="Assets\Scripts\Commands.cs" Line="48" Column="7" />
+      <File FileName="C:\Users\student\Dropbox\IdleRunner\Assets\Scripts\NumberConverter.cs" Line="69" Column="3" />
+      <File FileName="C:\Users\student\Dropbox\IdleRunner\Assets\Scripts\PlayerInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Commands.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
