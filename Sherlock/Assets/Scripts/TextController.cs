@@ -341,21 +341,8 @@ public class TextController : MonoBehaviour {
 					}
 					if(commands.FindNPC(inputArray[1]) != null)
 					{
-<<<<<<< HEAD
-						if(inputArray[2] == "about")
-						{
-							commands.FindNPC(inputArray[1]).AskAbout(inputArray[3]);
-							return;
-						}
-						else
-						{
-							commands.FindNPC(inputArray[1]).AskAbout (inputArray[2]);
-							return;
-						}
-=======
 						commands.FindNPC(inputArray[1]).AskAbout(inputArray[2+skip]);
 						return;
->>>>>>> origin/master
 					}
 					else
 					{
