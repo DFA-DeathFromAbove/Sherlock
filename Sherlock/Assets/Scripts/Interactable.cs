@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "This is a description of the object in question.";
-			changeDesc = "The door has been opened."
+			changeDesc = "The door has been opened.";
 		}
 		if(name.ToLower () == "table")
 		{

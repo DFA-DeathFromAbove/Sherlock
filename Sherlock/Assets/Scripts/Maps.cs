@@ -82,6 +82,8 @@ public class Maps : MonoBehaviour {
 		startingFarm[3].down = startingFarm[0];
 		startingFarm[3].AddNPC("Jon");
 		startingFarm[3].AddNPC("Greg");
+		startingFarm [3].AddInteractable ("door");
+		startingFarm [3].AddInteractable ("hidden passage");
 		
 		startingFarm[4].title = "Abandoned Farmhouse - Pantry";
 		startingFarm[4].desc = "Rotted meat lays strewn across the moldy floor.  A waft of warm air lifts upwards, making you gag and choke.";

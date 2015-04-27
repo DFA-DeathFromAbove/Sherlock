@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +21,7 @@ public class Room : MonoBehaviour{
 	public bool isActive = false;
 	
 	private List<NPC> npcs = new List<NPC>();
+	private List<Interactable> items = new List<Interactable> ();
 	
 	private Text locationText;
 	private Text locationTitle;
@@ -44,6 +45,12 @@ public class Room : MonoBehaviour{
 		npcs.Add(gameObject.AddComponent<NPC>());
 		npcs[npcs.OfType<NPC>().Count()-1].SetupNPC(npc);
 	}
+
+	public void AddInteractable(string item)
+	{
+		items.Add(gameObject.AddComponent<Interactable>());
+		items [items.OfType<Interactable> ().Count() - 1].SetupObject (item);
+	}
 	
 	public string SeeNPCs()
 	{
@@ -59,6 +66,20 @@ public class Room : MonoBehaviour{
 						returnedString += "and ";
 					returnedString += npc.npcName;
 					if(npc == npcs.ElementAt(npcs.OfType<NPC>().Count()-1))
+						returnedString += ".";
+					else
+						returnedString += ", ";
+				}
+			}
+			returnedString += " You also see: ";
+			foreach(Interactable item in items)
+			{
+				if(item != null)
+				{
+					if(item == items.ElementAt(items.OfType<Interactable>().Count()-1) && items.Count > 1)
+						returnedString += "and ";
+					returnedString += item.objectName;
+					if(item == items.ElementAt(items.OfType<Interactable>().Count()-1))
 						returnedString += ".";
 					else
 						returnedString += ", ";
