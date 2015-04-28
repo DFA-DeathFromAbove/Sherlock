@@ -52,7 +52,7 @@ public class Room : MonoBehaviour{
 		items [items.OfType<Interactable> ().Count() - 1].SetupObject (item);
 	}
 	
-	public string SeeNPCs()
+	public string LookAround()
 	{
 		string returnedString = "";
 		if(npcs.Count > 0)
@@ -96,6 +96,11 @@ public class Room : MonoBehaviour{
 	public List<NPC> GetNPCs()
 	{
 		return npcs;
+	}
+
+	public List<Interactable> GetObjects()
+	{
+		return items;
 	}
 	
 	public void DeleteNPC(NPC npc)

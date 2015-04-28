@@ -52,14 +52,27 @@ public class Commands : MonoBehaviour {
 		return "Not Found";
 	}
 	
-//	public string FindObject(string input)
-//	{
-//		List<string> objects = new List<string>();
-//		for(int i = 0; i < textController.GetMaps().ActiveRoom().roomObjects.Length; i++)
-//		{
-//			
-//		}
-//	}
+	public Interactable FindObject(string input)
+	{
+		if(maps.ActiveRoom().GetObjects().Count > 0)
+		{
+			foreach(Interactable item in maps.ActiveRoom().GetObjects())
+			{
+				if(item.objectName.Length >= input.Length)
+				{
+					if(item.objectName.ToLower().Contains(input)) //TODO: change from contains to match only the start of the monsterName ('at' should not find 'rat' in 'black rat')
+					{
+						return item;
+					}
+				}
+			}
+			return null;
+		}
+		else
+		{
+			return null;
+		}
+	}
 
 	public NPC FindNPC(string input)
 	{

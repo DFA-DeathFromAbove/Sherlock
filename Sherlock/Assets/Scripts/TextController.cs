@@ -278,7 +278,7 @@ public class TextController : MonoBehaviour {
 				if(inputArray.Count() <= 1)
 				{
 					AppendMain(maps.ActiveRoom().desc);
-					AppendMain(maps.ActiveRoom().SeeNPCs());
+					AppendMain(maps.ActiveRoom().LookAround());
 					return;
 				}
 				if(inputArray.Count() > 1)
@@ -291,6 +291,11 @@ public class TextController : MonoBehaviour {
 					if(commands.FindNPC(inputArray[1+skip]) != null)
 					{
 						AppendMain(commands.FindNPC(inputArray[1+skip]).GetDesc());
+						return;
+					}
+					if(commands.FindObject(inputArray[1+skip]) != null)
+					{
+						AppendMain(commands.FindObject(inputArray[1+skip]).Observe());
 						return;
 					}
 					else
@@ -311,6 +316,26 @@ public class TextController : MonoBehaviour {
 				{
 					AppendMain("Find what?");
 					return;
+				}
+			}
+			if(commands.FindCommand(inputArray[0]) == "move")
+			{
+				if(inputArray.Count() <= 1)
+				{
+					AppendMain("Move what?");
+					return;
+				}
+				if(inputArray.Count() > 1)
+				{
+					if(commands.FindObject(inputArray[1]) != null)
+					{
+						AppendMain(commands.FindObject(inputArray[1]).Interact());
+						return;
+					}
+					else
+					{
+						AppendMain("Look at what?");
+					}
 				}
 			}
 			if(commands.FindCommand(inputArray[0]) == "question")

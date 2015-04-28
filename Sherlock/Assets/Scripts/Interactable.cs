@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour {
 	bool change = false;
 	string desc = "";
 	string changeDesc = "";
+	string secret = "";
 	
 	public void Awake()
 	{
@@ -33,7 +34,7 @@ public class Interactable : MonoBehaviour {
 			change = false;
 			desc = "The table is covered in bottles and lab papers.";
 			changeDesc = "After pushing the table aside, you discover a hidden passage.";
-			SetupObject ("Hidden Passage");
+			secret = "Hidden Passage";
 		}
 		if(name.ToLower () == "hidden passage")
 		{
@@ -43,21 +44,26 @@ public class Interactable : MonoBehaviour {
 		}
 	}
 
-	public void Observe()
+	public string Observe()
 	{
 		if(discovered == false)
 		{
 			discovered = true;
 		}
-		textController.AppendMain(desc);
+		return desc;
 	}
 
-	public void Interact()
+	public string Interact()
 	{
 		if(change == false)
 		{
 			change = true;
 		}
-		textController.AppendMain (changeDesc);
+		if (secret != "") 
+		{
+//			SetupObject (secret);
+			textController.GetMaps().ActiveRoom().AddInteractable(secret);
+		}
+		return changeDesc;
 	}
 }
