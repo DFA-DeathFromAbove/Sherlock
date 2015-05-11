@@ -338,6 +338,44 @@ public class TextController : MonoBehaviour {
 					}
 				}
 			}
+			if(commands.FindCommand(inputArray[0]) == "use")
+			{
+				if(inputArray.Count() <= 1)
+				{
+					AppendMain("Use what?");
+					return;
+				}
+				if(inputArray.Count() == 2)
+				{
+					AppendMain ("Use it on what?");
+				}
+				if(inputArray.Count() > 2)
+				{
+					int skip = 0;
+					if(inputArray[1].ToLower() == "magnifying")
+					{
+						skip++;
+					}
+					if(inputArray[2].ToLower() == "on")
+					{
+						skip++;
+					}
+					/*if(commands.FindNPC(inputArray[2+skip]) != null)
+					{
+						AppendMain(commands.FindNPC(inputArray[2+skip]).GetDesc());
+						return;
+					}*/
+					if(commands.FindObject(inputArray[2+skip]) != null)
+					{
+						AppendMain(commands.FindObject(inputArray[1+skip]).Magnify());
+						return;
+					}
+					else
+					{
+						AppendMain("You can't do that.");
+					}
+				}
+			}
 			if(commands.FindCommand(inputArray[0]) == "question")
 			{
 				int skip = 0;
