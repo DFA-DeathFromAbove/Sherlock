@@ -14,8 +14,6 @@ public class Room : MonoBehaviour{
 	public Room up = null;
 	public Room down = null;
 	
-	public List<Interactable> interactables = new List<Interactable>();
-	
 	public string title;
 	public string desc;
 	public bool isActive = false;

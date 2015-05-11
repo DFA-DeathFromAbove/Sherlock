@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Commands.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Maps.cs" />
      <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
