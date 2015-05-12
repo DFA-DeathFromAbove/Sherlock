@@ -466,7 +466,7 @@ public class TextController : MonoBehaviour {
 						}
 						if(inputArray[2+skip].ToLower() == "safe")
 						{
-							AppendMain("WARNING: Opening the safe means you know who the criminal is. Are you ready to solve the mystery? (yes/no)");
+							AppendMain("WARNING: Opening the safe requires a conviction. Are you ready to solve the mystery? (yes/no)");
 							AppendMain("TODO: add the win condition/endings.");
 						}
 					}

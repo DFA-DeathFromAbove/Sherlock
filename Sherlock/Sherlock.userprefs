@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Commands.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TextController.cs">
     <Files>
-      <File FileName="Assets\Scripts\NPC.cs" Line="108" Column="30" />
-      <File FileName="Assets\Scripts\Commands.cs" Line="81" Column="36" />
-      <File FileName="Assets\Scripts\Interactable.cs" Line="318" Column="25" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="49" Column="3" />
-      <File FileName="Assets\Scripts\Maps.cs" Line="84" Column="25" />
       <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Room.cs" Line="104" Column="1" />
-      <File FileName="Assets\Scripts\TextController.cs" Line="426" Column="15" />
+      <File FileName="Assets\Scripts\Interactable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NPC.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Commands.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Maps.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Room.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TextController.cs" Line="470" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
