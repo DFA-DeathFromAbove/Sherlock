@@ -105,7 +105,7 @@ public class NPC : MonoBehaviour {
 		if(name.ToLower () == "clara") 
 		{
 			npcName = name;
-			info = "How can I help you, sir?";
+			info = "How can I help you?";
 			dialogue [0, 0] = "";
 			dialogue [0, 1] = "What are you talking about? I haven't heard anything about ";
 			dialogue [1, 0] = "richard";

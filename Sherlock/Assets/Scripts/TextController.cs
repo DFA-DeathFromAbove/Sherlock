@@ -322,6 +322,10 @@ public class TextController : MonoBehaviour {
 						maps.ActiveRoom().DeleteInteractable(commands.FindObject(inputArray[1]));
 					}
 				}
+				else
+				{
+					AppendMain("Get what?");
+				}
 			}
 			if(commands.FindCommand(inputArray[0]) == "find")
 			{
@@ -396,6 +400,74 @@ public class TextController : MonoBehaviour {
 						{
 							AppendMain(commands.FindObject(inputArray[2+skip]).Magnify());
 							return;
+							if(inputArray[2+skip] == "set")
+							{
+								maps.ActiveRoom().AddInteractable("safe");
+							}
+						}
+					}
+					if(inputArray[1].ToLower () == "fingerprint")
+					{
+						if(inputArray[1].ToLower() == "fingerprint" && inputArray[2].ToLower() == "kit")
+						{
+							skip++;
+						}
+						if(inputArray[2+skip].ToLower() == "on")
+						{
+							skip++;
+						}
+						if(commands.FindObject(inputArray[2+skip]) != null)
+						{
+							AppendMain(commands.FindObject(inputArray[2+skip]).Dust());
+							return;
+						}
+						if(commands.FindInventory(inputArray[2+skip]) != null)
+						{
+							AppendMain(commands.FindInventory(inputArray[2+skip]).Dust());
+							return;
+						}
+					}
+					if(inputArray[1].ToLower() == "negatives")
+					{
+						if(inputArray[2].ToLower() == "on")
+						{
+							skip++;
+						}
+						if(inputArray[2+skip].ToLower() == "chemical")
+						{
+							AppendMain("The negatives were turned into photos!");
+							inventory.AddInteractable("photos");
+							inventory.DeleteInteractable(commands.FindObject("negatives"));
+						}
+					}
+					if(inputArray[1].ToLower() == "film")
+					{
+						if(inputArray[1].ToLower() == "film" && inputArray[2].ToLower() == "reel")
+						{
+							skip++;
+						}
+						if(inputArray[2].ToLower() == "on")
+						{
+							skip++;
+						}
+						if(inputArray[2+skip].ToLower() == "projector")
+						{
+							AppendMain("You turn the projector on, and the screen starts to show images.");
+							maps.ActiveRoom().AddInteractable("projection");
+							inventory.DeleteInteractable(commands.FindObject("film reel"));
+							maps.ActiveRoom().DeleteInteractable(commands.FindObject("screen"));
+						}
+					}
+					if(inputArray[1].ToLower() == "photos")
+					{
+						if(inputArray[2].ToLower() == "on")
+						{
+							skip++;
+						}
+						if(inputArray[2+skip].ToLower() == "safe")
+						{
+							AppendMain("WARNING: Opening the safe means you know who the criminal is. Are you ready to solve the mystery? (yes/no)");
+							AppendMain("TODO: add the win condition/endings.");
 						}
 					}
 					else

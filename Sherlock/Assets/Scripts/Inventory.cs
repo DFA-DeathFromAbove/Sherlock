@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour {
 		textController = GameObject.Find ("Scripts").GetComponent<TextController>();
 		items.Add(gameObject.AddComponent<Interactable>());
 		items[0].SetupObject ("magnifying glass");
+		AddInteractable ("fingerprint kit");
 	}
 	
 	public void AddInteractable(string item)
@@ -41,6 +42,19 @@ public class Inventory : MonoBehaviour {
 		textController.AppendMain ("You're inventory contains: ");
 		for (int i = 0; i < items.Count(); i++) {
 			textController.AppendMain (items[i].objectName);
+		}
+	}
+	
+	public List<Interactable> GetObjects()
+	{
+		return items;
+	}
+
+	public void DeleteInteractable(Interactable item)
+	{
+		if(items.Contains(item))
+		{
+			items.Remove(item);
 		}
 	}
 

@@ -9,6 +9,11 @@ public class Interactable : MonoBehaviour {
 	bool discovered = false;
 	bool change = false;
 	bool pickup = false;
+	bool magnified = false;
+	bool fingerprint = false;
+	string dust = "";
+	string detail = "";
+	string detail2 = "";
 	string desc = "";
 	string changeDesc = "";
 	string secret = "";
@@ -26,6 +31,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "door";
 			discovered = false;
 			change = false;
+			pickup = false;
 			desc = "This is a description of the object in question.";
 			changeDesc = "The door has been opened.";
 			zoomDesc = "There are small scratches on the door, but nothing important.";
@@ -39,35 +45,56 @@ public class Interactable : MonoBehaviour {
 			desc = "The desk is covered in film and scripts.";
 			changeDesc = "After pushing the desk aside, you discover a hidden passage.";
 			secret = "Hidden Passage";
-			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Theif.' Ironic.";
+			detail = "film reel";
+			magnified = false;
+			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Theif.' Ironic. There's also a film reel.";
 		}
 		if(name.ToLower () == "boot")
 		{
 			objectName = "boot";
 			discovered = false;
 			change = false;
+			pickup = true;
 			desc = "One of the director's. While the boot is clean, it certainly doesn't smell that way.";
+		}
+		if (name.ToLower () == "director's chair") 
+		{
+			objectName = "director's chair";
+			discovered = false;
+			change = false;
+			pickup = false;
+			desc = "This is the chair the director uses when filming.";
 		}
 		if(name.ToLower () == "corpse")
 		{
 			objectName = "corpse";
+			magnified = false;
 			discovered = false;
 			change = false;
+			detail = "wallet";
+			detail2 = "boot";
 			desc = "You see the corpse of the director here.  He lies motionless, his mouth agape with a silent scream.  A slash wound on his chest is a dark burgandy.  His neck has been sliced open.";
+			zoomDesc = "On the corpse's body, you find a wallet, and you see that his boots have some sawdust on them.";
 		}
 		if(name.ToLower () == "wallet")
 		{
 			objectName = "wallet";
 			discovered = false;
 			change = false;
+			pickup = true;
+			fingerprint = true;
 			desc = "This belongs to the director, and still has his ID in it. If there was any cash in it, it's gone now.";
+			dust = "The wallet has Richard's fingerprints on it.";
 		}
 		if(name.ToLower () == "film reel")
 		{
 			objectName = "film reel";
 			discovered = false;
 			change = false;
+			pickup = true;
+			fingerprint = true;
 			desc = "One of the scenes from 'The Diamond Thief.' If I had a camera, I could take a close look at the film";
+			dust = "The film reel has Clara's fingerprints on it.";
 		}
 		if(name.ToLower () == "painting")
 		{
@@ -95,7 +122,10 @@ public class Interactable : MonoBehaviour {
 			objectName = "saw blade";
 			discovered = false;
 			change = false;
+			pickup = true;
+			fingerprint = true;
 			desc = "The murder weapon. It appears to be clean, but fingerprints might still linger.";
+			dust = "The saw blade has Gerrard's fingerprints on it.";
 		}
 		if(name.ToLower () == "camera")
 		{
@@ -123,6 +153,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "negatives";
 			discovered = false;
 			change = false;
+			pickup = true;
 			desc = "Some undeveloped film. Until it's developed, I have no idea what it's for.";
 		}
 		if(name.ToLower () == "costumes")
@@ -138,6 +169,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "This print seems somewhat old, but detailed in the saw dust.";
+			zoomDesc = "This print matches the boot print of the director.";
 		}
 		if(name.ToLower () == "cutting table")
 		{
@@ -173,6 +205,14 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The screen is blank, since the projector isn't running anything right now.";
+		}
+		if(name.ToLower () == "projection")
+		{
+			objectName = "projection";
+			discovered = false;
+			change = false;
+			desc = "The last few scenes of 'The Diamond Theif' play on the screen. You see something in the bottom right corner that's out of place.";
+			zoomDesc = "You see the shadow of Richard, the main actor. He's wearing gloves, and looks poised to steal the diamond.";
 		}
 		if(name.ToLower () == "film canisters")
 		{
@@ -221,10 +261,16 @@ public class Interactable : MonoBehaviour {
 			objectName = "magnifying glass";
 			desc = "A magnifying glass. Use this to get a closer look at potential clues.";
 		}
-		if (name.ToLower () == "clue") 
+		if (name.ToLower () == "fingerprint kit" || name.ToLower () == "fingerprint") 
 		{
-			objectName = "clue";
-			desc = "This is a pickup object test to see if the pickup function works.";
+			objectName = "fingerprint kit";
+			desc = "A kit you can use to dust objects for fingerprints.";
+			pickup = true;
+		}
+		if (name.ToLower () == "photos") 
+		{
+			objectName = "photos";
+			desc = "The photo appears to have three numbers on it.";
 			pickup = true;
 		}
 	}
@@ -253,7 +299,30 @@ public class Interactable : MonoBehaviour {
 
 	public string Magnify()
 	{
+		if(magnified == false)
+		{
+			magnified = true;
+			if(detail != "")
+			{
+				textController.GetMaps().ActiveRoom().AddInteractable(detail);
+			}
+			if(detail2 != "")
+			{
+				textController.GetMaps().ActiveRoom().AddInteractable(detail2);
+			}
+		}
 		return zoomDesc;
+	}
+	public string Dust()
+	{
+		if (fingerprint == true)
+		{
+			return dust;
+		}
+		else 
+		{
+			return "No fingerprints were found.";
+		}
 	}
 
 	public string PickUp()

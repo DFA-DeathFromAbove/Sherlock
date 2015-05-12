@@ -53,22 +53,23 @@ public class Room : MonoBehaviour{
 	public string LookAround()
 	{
 		string returnedString = "";
-		if(npcs.Count > 0)
+		if (npcs.Count > 0)
 		{
 			returnedString = "You see: ";
-			foreach(NPC npc in npcs)
-			{
-				if(npc != null)
-				{
-					if(npc == npcs.ElementAt(npcs.OfType<NPC>().Count()-1) && npcs.Count > 1)
+			foreach (NPC npc in npcs) {
+				if (npc != null) {
+					if (npc == npcs.ElementAt (npcs.OfType<NPC> ().Count () - 1) && npcs.Count > 1)
 						returnedString += "and ";
 					returnedString += npc.npcName;
-					if(npc == npcs.ElementAt(npcs.OfType<NPC>().Count()-1))
+					if (npc == npcs.ElementAt (npcs.OfType<NPC> ().Count () - 1))
 						returnedString += ".";
 					else
 						returnedString += ", ";
 				}
 			}
+		}
+		if(items.Count > 0)
+		{
 			returnedString += " You also see: ";
 			int i = 0;
 			foreach(Interactable item in items)

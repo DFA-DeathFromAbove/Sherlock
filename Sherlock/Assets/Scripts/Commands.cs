@@ -7,6 +7,7 @@ public class Commands : MonoBehaviour {
 
 	private TextController textController;
 	private Maps maps;
+	private Inventory inventory;
 	private string[] commands = new string[100];
 	private string[] cardinals = new string[20];
 	private string[] attacks = new string[30];
@@ -15,6 +16,7 @@ public class Commands : MonoBehaviour {
 	void Awake()
 	{
 		maps = GameObject.Find ("Scripts").GetComponent<Maps>();
+		inventory = GameObject.Find ("Scripts").GetComponent<Inventory> ();
 		textController = GameObject.Find ("Scripts").GetComponent<TextController>();
 		InitiateCommands();
 		Array.Sort(commands);
@@ -69,6 +71,24 @@ public class Commands : MonoBehaviour {
 			return null;
 		}
 		else
+		{
+			return null;
+		}
+	}
+
+	public Interactable FindInventory(string input)
+	{
+		if (inventory.GetObjects ().Count > 0) {
+			foreach (Interactable item in inventory.GetObjects()) {
+				if (item.objectName.Length >= input.Length) {
+					if (item.objectName.ToLower ().Contains (input)) { //TODO: change from contains to match only the start of the monsterName ('at' should not find 'rat' in 'black rat')
+						return item;
+					}
+				}
+			}
+			return null;
+		} 
+		else 
 		{
 			return null;
 		}
