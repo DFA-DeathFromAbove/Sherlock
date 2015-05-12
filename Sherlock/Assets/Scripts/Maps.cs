@@ -82,7 +82,7 @@ public class Maps : MonoBehaviour {
 		mainArea[0].AddInteractable("corpse");
 		
 		mainArea[1].title = "Stage";
-		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle. You see Clara and Richard";
+		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large stand in the middle. You see Clara and Richard.";
 		mainArea[1].north = mainArea[0];
 		mainArea[1].east = mainArea[5];
 		mainArea[1].south = mainArea[3];
