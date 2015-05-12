@@ -69,24 +69,27 @@ public class Maps : MonoBehaviour {
 	
 	void SetRoomDescriptions()
 	{
-		theVoid.title = "The Void";
-		theVoid.desc = "Swirling darkness envelopes you.  Where are you but within your own lack of existance?";
+		theVoid.title = "Welcome";
+		theVoid.desc = "A director's body has been found at a film stage, and an exquisite diamond has been stolen. It is up to you to solve the mystery of 'The Diamond Thief'";
 		theVoid.SwitchActive(true);
 		activeRoom = theVoid;
 		
 		mainArea[0].title = "Office";
 		mainArea[0].desc = "The Director's office. You see a large, solid wood desk facing a wall. A large, ugly painting hangs to the right. The director's body is seen on the floor, with obvious stab wounds.";
 		mainArea[0].south = mainArea[1];
+		mainArea[0].AddInteractable("painting");
+		mainArea[0].AddInteractable("desk");
+		mainArea[0].AddInteractable("corpse");
 		
 		mainArea[1].title = "Stage";
-		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle.";
+		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle. You see Clara and Richard";
 		mainArea[1].north = mainArea[0];
 		mainArea[1].east = mainArea[5];
 		mainArea[1].south = mainArea[3];
 		mainArea[1].AddNPC ("Richard");
 		
 		mainArea[2].title = "Woodshop";
-		mainArea[2].desc = "NPC2 is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";
+		mainArea[2].desc = "Gerard is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";
 		mainArea[2].east = mainArea[3];
 		
 		mainArea[3].title = "Projector Room";
@@ -105,5 +108,7 @@ public class Maps : MonoBehaviour {
 		
 		hiddenArea[0].title = "Secret Room";
 		hiddenArea[0].desc = "You walk into a small, cramped space. There are cobwebs everywhere, and a lone lightbulb provides the only light. On the ground lies a camera with some negative film.";
+		hiddenArea[0].AddInteractable("camera");
+		hiddenArea[0].AddInteractable("negatives");
 	}
 }

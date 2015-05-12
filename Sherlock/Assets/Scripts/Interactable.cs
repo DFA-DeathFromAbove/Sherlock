@@ -30,15 +30,51 @@ public class Interactable : MonoBehaviour {
 			changeDesc = "The door has been opened.";
 			zoomDesc = "There are small scratches on the door, but nothing important.";
 		}
-		if(name.ToLower () == "table")
+		
+		if(name.ToLower () == "desk")
 		{
-			objectName = "table";
+			objectName = "desk";
 			discovered = false;
 			change = false;
-			desc = "The table is covered in film and scrpits.";
-			changeDesc = "After pushing the table aside, you discover a hidden passage.";
+			desc = "The desk is covered in film and scrpits.";
+			changeDesc = "After pushing the desk aside, you discover a hidden passage.";
 			secret = "Hidden Passage";
 			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Theif.' Ironic.";
+		}
+		if(name.ToLower () == "boot")
+		{
+			objectName = "boot";
+			discovered = false;
+			change = false;
+			desc = "One of the director's. While the boot is clean, it certainly doesn't smell that way.";
+		}
+		if(name.ToLower () == "corpse")
+		{
+			objectName = "corpse";
+			discovered = false;
+			change = false;
+			desc = "You see the corpse of the director here.  He lies motionless, his mouth agape with a silent scream.  A slash wound on his chest is a dark burgandy.  His neck has been sliced open.";
+		}
+		if(name.ToLower () == "wallet")
+		{
+			objectName = "wallet";
+			discovered = false;
+			change = false;
+			desc = "This belongs to the director, and still has his ID in it. If there was any cash in it, it's gone now.";
+		}
+		if(name.ToLower () == "film reel")
+		{
+			objectName = "film reel";
+			discovered = false;
+			change = false;
+			desc = "One of the scenes from 'The Diamond Theif.' If I had a camera, I could take a close look at the film";
+		}
+		if(name.ToLower () == "painting")
+		{
+			objectName = "film reel";
+			discovered = false;
+			change = false;
+			desc = "Some sort of post-modernism painting. The colors feel off, and the painting itself is atrocious.";
 		}
 		if(name.ToLower () == "hidden passage")
 		{
