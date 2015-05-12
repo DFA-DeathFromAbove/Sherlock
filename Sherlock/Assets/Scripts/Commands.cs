@@ -134,6 +134,5 @@ public class Commands : MonoBehaviour {
 		commands[5] = "no";
 		commands[6] = "find";
 		commands[7] = "use";
-		commands[8] = "secret";
 	}
 }

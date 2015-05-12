@@ -71,14 +71,14 @@ public class Interactable : MonoBehaviour {
 		}
 		if(name.ToLower () == "painting")
 		{
-			objectName = "film reel";
+			objectName = "painting";
 			discovered = false;
 			change = false;
 			desc = "Some sort of post-modernism painting. The colors feel off, and the painting itself is atrocious.";
 		}
 		if(name.ToLower () == "hidden passage")
 		{
-			objectName = "Hidden Passage";
+			objectName = "hidden passage";
 			discovered = false;
 			desc = "The passage seems to lead into the courtyard.";
 			zoomDesc = "The passage seems to lead into the courtyard. Nothing else is notable.";

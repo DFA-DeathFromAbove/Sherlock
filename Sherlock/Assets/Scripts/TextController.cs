@@ -346,7 +346,7 @@ public class TextController : MonoBehaviour {
 				}
 				if(inputArray.Count() > 1)
 				{
-					if(commands.FindCommand(inputArray[1]) == "secret")
+					if(inputArray[1] == "secret")
 					{
 						//if(secretFound)
 						if(true)

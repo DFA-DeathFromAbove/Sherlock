@@ -22,6 +22,18 @@ public class Inventory : MonoBehaviour {
 		items.Add(gameObject.AddComponent<Interactable>());
 		items [items.OfType<Interactable> ().Count() - 1].SetupObject (item);
 	}
+	
+	public bool HasItem(string item)
+	{
+		foreach(Interactable interactable in items)
+		{
+			if(interactable.objectName == item)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public void ListAll()
 	{
