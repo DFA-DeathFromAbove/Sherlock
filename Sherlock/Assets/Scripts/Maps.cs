@@ -83,6 +83,7 @@ public class Maps : MonoBehaviour {
 		mainArea[1].north = mainArea[0];
 		mainArea[1].east = mainArea[5];
 		mainArea[1].south = mainArea[3];
+		mainArea[1].AddNPC ("Richard");
 		
 		mainArea[2].title = "Woodshop";
 		mainArea[2].desc = "NPC2 is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";

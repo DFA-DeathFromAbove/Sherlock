@@ -430,7 +430,12 @@ public class TextController : MonoBehaviour {
 					{
 						skip++;
 					}
-					if(commands.FindNPC(inputArray[1]) != null)
+					if(commands.FindNPC(inputArray[1]) != null && inputArray.Count() > 3 + skip)
+					{
+						commands.FindNPC(inputArray[1]).AskAbout(inputArray[2+skip]+" "+inputArray[3+skip]);
+						return;
+					}
+					else if(commands.FindNPC(inputArray[1]) != null)
 					{
 						commands.FindNPC(inputArray[1]).AskAbout(inputArray[2+skip]);
 						return;

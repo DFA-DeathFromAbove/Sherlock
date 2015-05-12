@@ -1,10 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Commands.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NPC.cs">
     <Files>
-      <File FileName="Assets\Scripts\Maps.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TextController.cs" Line="366" Column="37" />
-      <File FileName="Assets\Scripts\Commands.cs" Line="137" Column="26" />
+      <File FileName="Assets\Scripts\Interactable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Maps.cs" Line="86" Column="31" />
+      <File FileName="Assets\Scripts\TextController.cs" Line="428" Column="6" />
+      <File FileName="Assets\Scripts\Commands.cs" Line="113" Column="4" />
+      <File FileName="Assets\Scripts\NPC.cs" Line="116" Column="38" />
+      <File FileName="Assets\Scripts\Room.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="23" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
