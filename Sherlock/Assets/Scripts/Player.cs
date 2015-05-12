@@ -29,12 +29,12 @@ public class Player : MonoBehaviour {
 	{
 		if(playerName == "New Player")
 		{
-			output.AppendMain("The land of Iznia welcomes a new hero... \nWhat name do you take?");
+			output.AppendMain("The scene welcomes the new Detective... \nWhat name do you take?");
 			output.SetGameState("New Player");
 		}
 		else
 		{
-			output.AppendMain("The land of Iznia welcomes the return of the hero " + playerName + ".");
+			output.AppendMain("Welcome back to the case, Detective " + playerName + ".");
 		}
 	}
 	
