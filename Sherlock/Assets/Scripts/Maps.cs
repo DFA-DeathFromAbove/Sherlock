@@ -69,8 +69,8 @@ public class Maps : MonoBehaviour {
 	
 	void SetRoomDescriptions()
 	{
-		theVoid.title = "The Void";
-		theVoid.desc = "Swirling darkness envelopes you.  Where are you but within your own lack of existance?";
+		theVoid.title = "Welcome";
+		theVoid.desc = "A director's body has been found at a film stage, and an exquisite diamond has been stolen. It is up to you to solve the mystery of 'The Diamond Thief'";
 		theVoid.SwitchActive(true);
 		activeRoom = theVoid;
 		
@@ -82,13 +82,13 @@ public class Maps : MonoBehaviour {
 		mainArea[0].AddInteractable("corpse");
 		
 		mainArea[1].title = "Stage";
-		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle.";
+		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle. You see Clara and Richard";
 		mainArea[1].north = mainArea[0];
 		mainArea[1].east = mainArea[5];
 		mainArea[1].south = mainArea[3];
 		
 		mainArea[2].title = "Woodshop";
-		mainArea[2].desc = "NPC2 is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";
+		mainArea[2].desc = "Gerard is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";
 		mainArea[2].east = mainArea[3];
 		
 		mainArea[3].title = "Projector Room";
