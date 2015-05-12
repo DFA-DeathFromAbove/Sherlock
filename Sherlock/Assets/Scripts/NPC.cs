@@ -106,7 +106,39 @@ public class NPC : MonoBehaviour {
 		{
 			npcName = name;
 			info = "How can I help you, sir?";
-			dialogue [0,0] = "";
+			dialogue [0, 0] = "";
+			dialogue [0, 1] = "What are you talking about? I haven't heard anything about ";
+			dialogue [1, 0] = "richard";
+			dialogue [1, 1] = "A great actor thus far. Has played the part exceptionally well.";
+			dialogue [2, 0] = "gerrard";
+			dialogue [2, 1] = "Makes nice sets, works hard. Don't talk to him much otherwise";
+			dialogue [3, 0] = "clara";
+			dialogue [3, 1] = "I'm a camera operator. I work on many of the shots for the film.";
+			dialogue [4, 0] = "murder";
+			dialogue [4, 1] = "Really unfortunate. The filming was going so well, and he was a great guy to work for.";
+			dialogue [5, 0] = "wallet";
+			dialogue [5, 1] = "Looks like the director's wallet.";
+			dialogue [6, 0] = "boots";
+			dialogue [6, 1] = "Saw him wearing those all the time.";
+			dialogue [7, 0] = "film reel";
+			dialogue [7, 1] = "Looks like its from yesterday. Probably the developed takes.";
+			dialogue [8, 0] = "set";
+			dialogue [8, 1] = "Great design so far. The director likes to be a perfectionist, and our woodshop puts out some nice work.";
+			dialogue [9, 0] = "saw blade";
+			dialogue [9, 1] = "Looks like a blade from the woodshop.";
+			dialogue [10, 0] = "painting";
+			dialogue [10, 1] = "Never understood that painting. Not a great work of art in my opinion.";
+			dialogue [11, 0] = "ash tray";
+			dialogue [11, 1] = "Used quite often by the director as he was looking at film.";
+			dialogue [12, 0] = "director's chair";
+			dialogue [12, 1] = "Vacant now.";
+			dialogue [13, 0] = "director";
+			dialogue [13, 1] = "Always a good person to work for. Sad that he's gone.";
+			dialogue [14, 0] = "mitch ogden";
+			dialogue [14, 1] = "Great guy, good professor.";
+			dialogue [15, 0] = "costume rack";
+			dialogue [15, 1] = "Used often by the cast of the movie.";
+
 
 		}
 	}
