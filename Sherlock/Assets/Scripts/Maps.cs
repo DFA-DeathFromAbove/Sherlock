@@ -77,6 +77,9 @@ public class Maps : MonoBehaviour {
 		mainArea[0].title = "Office";
 		mainArea[0].desc = "The Director's office. You see a large, solid wood desk facing a wall. A large, ugly painting hangs to the right. The director's body is seen on the floor, with obvious stab wounds.";
 		mainArea[0].south = mainArea[1];
+		mainArea[0].AddInteractable("painting");
+		mainArea[0].AddInteractable("desk");
+		mainArea[0].AddInteractable("corpse");
 		
 		mainArea[1].title = "Stage";
 		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle.";
@@ -104,5 +107,7 @@ public class Maps : MonoBehaviour {
 		
 		hiddenArea[0].title = "Secret Room";
 		hiddenArea[0].desc = "You walk into a small, cramped space. There are cobwebs everywhere, and a lone lightbulb provides the only light. On the ground lies a camera with some negative film.";
+		hiddenArea[0].AddInteractable("camera");
+		hiddenArea[0].AddInteractable("negatives");
 	}
 }
