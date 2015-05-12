@@ -341,11 +341,21 @@ public class TextController : MonoBehaviour {
 			{
 				if(inputArray.Count() <= 1)
 				{
-					AppendMain("Move what?");
+					AppendMain("Move what or where?");
 					return;
 				}
 				if(inputArray.Count() > 1)
 				{
+					if(commands.FindCommand(inputArray[1]) == "secret")
+					{
+						//if(secretFound)
+						if(true)
+						{
+							AppendMain("You enter a hidden passage.");
+							maps.SetActive("hidden",0);
+							return;
+						}
+					}
 					if(commands.FindObject(inputArray[1]) != null)
 					{
 						AppendMain(commands.FindObject(inputArray[1]).Interact());
@@ -353,7 +363,8 @@ public class TextController : MonoBehaviour {
 					}
 					else
 					{
-						AppendMain("Look at what?");
+						AppendMain("Move what or where?");
+						return;
 					}
 				}
 			}
