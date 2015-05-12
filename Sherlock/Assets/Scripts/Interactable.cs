@@ -42,6 +42,13 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			desc = "The passage seems to lead into the courtyard.";
 		}
+		if(name.ToLower () == "film reel")
+		{
+			objectName = "Film Reel";
+			discovered = false;
+			desc = "A film reel from the nearby camera.";
+			changeDesc = "After inserting the reel, a projection appears on the wall.";
+		}
 	}
 
 	public string Observe()
