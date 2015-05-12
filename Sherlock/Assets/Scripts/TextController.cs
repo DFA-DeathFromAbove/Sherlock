@@ -356,18 +356,13 @@ public class TextController : MonoBehaviour {
 					{
 						skip++;
 					}
-					if(inputArray[2].ToLower() == "on")
+					if(inputArray[2+skip].ToLower() == "on")
 					{
 						skip++;
 					}
-					/*if(commands.FindNPC(inputArray[2+skip]) != null)
-					{
-						AppendMain(commands.FindNPC(inputArray[2+skip]).GetDesc());
-						return;
-					}*/
 					if(commands.FindObject(inputArray[2+skip]) != null)
 					{
-						AppendMain(commands.FindObject(inputArray[1+skip]).Magnify());
+						AppendMain(commands.FindObject(inputArray[2+skip]).Magnify());
 						return;
 					}
 					else
