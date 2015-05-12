@@ -139,7 +139,7 @@ public class TextController : MonoBehaviour {
 			{
 				AppendMain ("Welcome to the case, "+player.playerName+".");
 				gameState = "Default";
-				maps.SetActive("startingFarm",3);
+				maps.SetActive("main",0);
 				playerNameText.text = player.playerName;
 				return;
 			}

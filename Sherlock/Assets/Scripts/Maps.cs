@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Maps : MonoBehaviour {
 
-	public List<Room> startingFarm = new List<Room>();
+	public List<Room> mainArea = new List<Room>();
+	public List<Room> hiddenArea = new List<Room>();
 	public Room theVoid;
 	
 	private Room activeRoom;
@@ -18,20 +19,33 @@ public class Maps : MonoBehaviour {
 	private void InitializeRooms()
 	{
 		theVoid = gameObject.AddComponent<Room>();
+		for(int i = 0; i < 6; i++)
+		{
+			mainArea.Insert(0,gameObject.AddComponent<Room>());
+		}
 		for(int i = 0; i < 5; i++)
 		{
-			startingFarm.Insert(0,gameObject.AddComponent<Room>());
+			hiddenArea.Insert(0,gameObject.AddComponent<Room>());
 		}
 	}
 	
 	public void SetActive(string area, int roomNumber)
 	{
-		if(area == "startingFarm")
+		if(area == "main")
 		{
-			if(roomNumber < startingFarm.Count && startingFarm[roomNumber] != null)
+			if(roomNumber < mainArea.Count && mainArea[roomNumber] != null)
 			{
 				activeRoom.SwitchActive();
-				activeRoom = startingFarm[roomNumber];
+				activeRoom = mainArea[roomNumber];
+				activeRoom.SwitchActive();
+			}
+		}
+		if(area == "hidden")
+		{
+			if(roomNumber < hiddenArea.Count && hiddenArea[roomNumber] != null )
+			{
+				activeRoom.SwitchActive();
+				activeRoom = hiddenArea[roomNumber];
 				activeRoom.SwitchActive();
 			}
 		}
@@ -60,34 +74,35 @@ public class Maps : MonoBehaviour {
 		theVoid.SwitchActive(true);
 		activeRoom = theVoid;
 		
-		startingFarm[0].title = "Abandoned Farmhouse - Hallway";
-		startingFarm[0].desc = "Aged wood creaks upon your steps.  Sharp gashes adorn a dog sized hole that has been dug into the wall."
-		+"  Scratching and scraping can be heard from below the floorboards.";
-		startingFarm[0].north = startingFarm[1];
-		startingFarm[0].south = startingFarm[2];
-		startingFarm[0].up = startingFarm[3];
+		mainArea[0].title = "Office";
+		mainArea[0].desc = "The Director's office. You see a large, solid wood desk facing a wall. A large, ugly painting hangs to the right. The director's body is seen on the floor, with obvious stab wounds.";
+		mainArea[0].south = mainArea[1];
 		
-		startingFarm[1].title = "Abandoned Farmhouse - Kitchen";
-		startingFarm[1].desc = "Once a kitchen; it can be called no longer.  Dead leaves litter the floor of a dead home.";
-		startingFarm[1].south = startingFarm[0];
-		startingFarm[1].east = startingFarm[4];
+		mainArea[1].title = "Stage";
+		mainArea[1].desc = "A large, open room. The set takes up the majority of the space, a fake bank vault with a large pedastol in the middle.";
+		mainArea[1].north = mainArea[0];
+		mainArea[1].east = mainArea[5];
+		mainArea[1].south = mainArea[3];
 		
-		startingFarm[2].title = "Abandoned Farmhouse - Front Yard";
-		startingFarm[2].desc = "Once the sole pride of a farmer, nature has begun to erase this building from history."
-		+"  Looking upon the abandoned building leaves you with a sense of forlorn memories; a nostalgia you can never hope to return to.";
-		startingFarm[2].north = startingFarm[0];
+		mainArea[2].title = "Woodshop";
+		mainArea[2].desc = "NPC2 is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";
+		mainArea[2].east = mainArea[3];
 		
-		startingFarm[3].title = "Abandoned Farmhouse - Master Bedroom";
-		startingFarm[3].desc = "Devoid of any rememberance of the comfort that once was, this once haven of sweet dreams has become a haven for termites and vagabonds.  It appears that someone has slept here recently.";
-		startingFarm[3].down = startingFarm[0];
-		startingFarm[3].AddNPC("Jon");
-		startingFarm[3].AddNPC("Greg");
-		startingFarm [3].AddInteractable ("door");
-		startingFarm [3].AddInteractable ("table");
-		startingFarm [3].AddInteractable ("clue");
+		mainArea[3].title = "Projector Room";
+		mainArea[3].desc = "You enter the narrow room, and a projector lies in the middle of the floor. Facing opposite you is a large screen upon which projections would be cast. To the left is a filled ash tray.";
+		mainArea[3].north = mainArea[1];
+		mainArea[3].south = mainArea[4];
+		mainArea[3].west = mainArea[2];
 		
-		startingFarm[4].title = "Abandoned Farmhouse - Pantry";
-		startingFarm[4].desc = "Rotted meat lays strewn across the moldy floor.  A waft of warm air lifts upwards, making you gag and choke.";
-		startingFarm[4].west = startingFarm[1];
+		mainArea[4].title = "Negative Development Room";
+		mainArea[4].desc = "A dimly, red-lit room lies through the narrow passages. In front of you lies a large chemical wash and lines from which negatives would be strung.";
+		mainArea[4].north = mainArea[3];
+		
+		mainArea[5].title = "Changing Room";
+		mainArea[5].desc = "A large, bright room that contains numerous make-up tables, a costume rack, and mirrors.";
+		mainArea[5].west = mainArea[1];
+		
+		hiddenArea[0].title = "Secret Room";
+		hiddenArea[0].desc = "You walk into a small, cramped space. There are cobwebs everywhere, and a lone lightbulb provides the only light. On the ground lies a camera with some negative film.";
 	}
 }
