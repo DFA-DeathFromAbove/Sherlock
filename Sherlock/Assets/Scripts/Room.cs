@@ -47,9 +47,9 @@ public class Room : MonoBehaviour{
 	public void AddInteractable(string item)
 	{
 		items.Add(gameObject.AddComponent<Interactable>());
-		items [items.OfType<Interactable> ().Count() - 1].SetupObject (item);
+		items[items.OfType<Interactable>().Count() - 1].SetupObject(item);
 	}
-	
+
 	public string LookAround()
 	{
 		string returnedString = "";
@@ -70,18 +70,23 @@ public class Room : MonoBehaviour{
 				}
 			}
 			returnedString += " You also see: ";
+			int i = 0;
 			foreach(Interactable item in items)
 			{
 				if(item != null)
 				{
 					if(item == items.ElementAt(items.OfType<Interactable>().Count()-1) && items.Count > 1)
 						returnedString += "and ";
-					returnedString += item.objectName;
+					if(i > 0)
+						returnedString += "a " + item.objectName;
+					if(i == 0)
+						returnedString += "A " + item.objectName;
 					if(item == items.ElementAt(items.OfType<Interactable>().Count()-1))
 						returnedString += ".";
 					else
 						returnedString += ", ";
 				}
+				i++;
 			}
 		}
 		else
@@ -106,6 +111,14 @@ public class Room : MonoBehaviour{
 		if(npcs.Contains(npc))
 		{
 			npcs.Remove(npc);
+		}
+	}
+	
+	public void DeleteInteractable(Interactable item)
+	{
+		if(items.Contains(item))
+		{
+			items.Remove(item);
 		}
 	}
 	

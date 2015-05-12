@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour {
 	public string objectName = "";
 	bool discovered = false;
 	bool change = false;
+	bool pickup = false;
 	string desc = "";
 	string changeDesc = "";
 	string secret = "";
@@ -22,7 +23,7 @@ public class Interactable : MonoBehaviour {
 	{
 		if(name.ToLower() == "door")
 		{
-			objectName = "Door";
+			objectName = "door";
 			discovered = false;
 			change = false;
 			desc = "This is a description of the object in question.";
@@ -31,7 +32,7 @@ public class Interactable : MonoBehaviour {
 		}
 		if(name.ToLower () == "table")
 		{
-			objectName = "Table";
+			objectName = "table";
 			discovered = false;
 			change = false;
 			desc = "The table is covered in film and scrpits.";
@@ -46,10 +47,16 @@ public class Interactable : MonoBehaviour {
 			desc = "The passage seems to lead into the courtyard.";
 			zoomDesc = "The passage seems to lead into the courtyard. Nothing else is notable.";
 		}
-		if (name.ToLower () == "magnifying glass") 
+		if (name.ToLower () == "magnifying glass" || name.ToLower() == "magnifying") 
 		{
-			objectName = "Magnifying Glass";
+			objectName = "magnifying glass";
 			desc = "A magnifying glass. Use this to get a closer look at potential clues.";
+		}
+		if (name.ToLower () == "clue") 
+		{
+			objectName = "clue";
+			desc = "This is a pickup object test to see if the pickup function works.";
+			pickup = true;
 		}
 	}
 
@@ -78,5 +85,17 @@ public class Interactable : MonoBehaviour {
 	public string Magnify()
 	{
 		return zoomDesc;
+	}
+
+	public string PickUp()
+	{
+		if (pickup == false) 
+		{
+			return "You can't take this with you.";
+		}
+		else 
+		{
+			return "Added to inventory.";
+		}
 	}
 }

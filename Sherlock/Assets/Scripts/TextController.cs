@@ -13,6 +13,8 @@ public class TextController : MonoBehaviour {
 	public Text playerNameText;
 	
 	public string gameState;
+
+	public Inventory inventory;
 	
 	private Player player;
 	private Commands commands;
@@ -23,6 +25,7 @@ public class TextController : MonoBehaviour {
 		maps = gameObject.GetComponent<Maps>();
 		player = gameObject.GetComponent<Player>();
 		commands = gameObject.AddComponent<Commands>();
+		inventory = gameObject.AddComponent<Inventory>();
 		EventSystem.current.SetSelectedGameObject(mainIn.transform.parent.gameObject);
 		playerNameText.text = player.playerName;
 	}
@@ -298,9 +301,25 @@ public class TextController : MonoBehaviour {
 						AppendMain(commands.FindObject(inputArray[1+skip]).Observe());
 						return;
 					}
+					if(inputArray[1+skip].ToLower() == "inventory")
+					{
+						inventory.ListAll();
+					}
 					else
 					{
 						AppendMain("Look at what?");
+					}
+				}
+			}
+			if(commands.FindCommand(inputArray[0]) == "get")
+			{
+				if(inputArray[1] != null)
+				{
+					AppendMain (commands.FindObject(inputArray[1]).PickUp());
+					if(commands.FindObject(inputArray[1]).PickUp() == "Added to inventory.")
+					{
+						inventory.AddInteractable(inputArray[1]);
+						maps.ActiveRoom().DeleteInteractable(commands.FindObject(inputArray[1]));
 					}
 				}
 			}
@@ -347,23 +366,26 @@ public class TextController : MonoBehaviour {
 				}
 				if(inputArray.Count() == 2)
 				{
-					AppendMain ("Use it on what?");
+					AppendMain ("Use "+inputArray[1]+" on what?");
 				}
 				if(inputArray.Count() > 2)
 				{
 					int skip = 0;
-					if(inputArray[1].ToLower() == "magnifying")
+					if(inputArray[1].ToLower () == "magnifying")
 					{
-						skip++;
-					}
-					if(inputArray[2+skip].ToLower() == "on")
-					{
-						skip++;
-					}
-					if(commands.FindObject(inputArray[2+skip]) != null)
-					{
-						AppendMain(commands.FindObject(inputArray[2+skip]).Magnify());
-						return;
+						if(inputArray[1].ToLower() == "magnifying" && inputArray[2].ToLower() == "glass")
+						{
+							skip++;
+						}
+						if(inputArray[2+skip].ToLower() == "on")
+						{
+							skip++;
+						}
+						if(commands.FindObject(inputArray[2+skip]) != null)
+						{
+							AppendMain(commands.FindObject(inputArray[2+skip]).Magnify());
+							return;
+						}
 					}
 					else
 					{
