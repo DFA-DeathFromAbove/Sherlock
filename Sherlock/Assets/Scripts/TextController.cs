@@ -315,11 +315,18 @@ public class TextController : MonoBehaviour {
 			{
 				if(inputArray[1] != null)
 				{
-					AppendMain (commands.FindObject(inputArray[1]).PickUp());
-					if(commands.FindObject(inputArray[1]).PickUp() == "Added to inventory.")
+					if(commands.FindObject(inputArray[1]) != null)
 					{
-						inventory.AddInteractable(inputArray[1]);
-						maps.ActiveRoom().DeleteInteractable(commands.FindObject(inputArray[1]));
+						AppendMain (commands.FindObject(inputArray[1]).PickUp());
+						if(commands.FindObject(inputArray[1]).PickUp() == "Added to inventory.")
+						{
+							inventory.AddInteractable(inputArray[1]);
+							maps.ActiveRoom().DeleteInteractable(commands.FindObject(inputArray[1]));
+						}
+					}
+					else
+					{
+						AppendMain("Get what?");
 					}
 				}
 				else
@@ -381,7 +388,14 @@ public class TextController : MonoBehaviour {
 				}
 				if(inputArray.Count() == 2)
 				{
-					AppendMain ("Use "+inputArray[1]+" on what?");
+					if(inventory.HasItem(inputArray[1]) == true)
+					{
+						AppendMain ("Use "+inputArray[1]+" on what?");
+					}
+					else
+					{
+						AppendMain ("You don't have " + inputArray[1] + ".");
+					}
 				}
 				if(inputArray.Count() > 2)
 				{
@@ -400,10 +414,6 @@ public class TextController : MonoBehaviour {
 						{
 							AppendMain(commands.FindObject(inputArray[2+skip]).Magnify());
 							return;
-							if(inputArray[2+skip] == "set")
-							{
-								maps.ActiveRoom().AddInteractable("safe");
-							}
 						}
 					}
 					if(inputArray[1].ToLower () == "fingerprint")
@@ -427,20 +437,18 @@ public class TextController : MonoBehaviour {
 							return;
 						}
 					}
-					if(inputArray[1].ToLower() == "negatives")
+					if(inputArray[1].ToLower() == "negatives" && inventory.HasItem("negatives") == true)
 					{
 						if(inputArray[2].ToLower() == "on")
 						{
 							skip++;
 						}
-						if(inputArray[2+skip].ToLower() == "chemical")
+						if(commands.FindObject(inputArray[2+skip]) != null)
 						{
-							AppendMain("The negatives were turned into photos!");
-							inventory.AddInteractable("photos");
-							inventory.DeleteInteractable(commands.FindObject("negatives"));
+							AppendMain(commands.FindObject(inputArray[2+skip]).Chemical());
 						}
 					}
-					if(inputArray[1].ToLower() == "film")
+					if(inputArray[1].ToLower() == "film" && inventory.HasItem("film reel") == true)
 					{
 						if(inputArray[1].ToLower() == "film" && inputArray[2].ToLower() == "reel")
 						{
@@ -458,16 +466,15 @@ public class TextController : MonoBehaviour {
 							maps.ActiveRoom().DeleteInteractable(commands.FindObject("screen"));
 						}
 					}
-					if(inputArray[1].ToLower() == "photos")
+					if(inputArray[1].ToLower() == "photos" && inventory.HasItem("photos") == true)
 					{
 						if(inputArray[2].ToLower() == "on")
 						{
 							skip++;
 						}
-						if(inputArray[2+skip].ToLower() == "safe")
+						if(commands.FindObject(inputArray[2+skip]) != null)
 						{
-							AppendMain("WARNING: Opening the safe requires a conviction. Are you ready to solve the mystery? (yes/no)");
-							AppendMain("TODO: add the win condition/endings.");
+							AppendMain (commands.FindObject(inputArray[2+skip]).Win());
 						}
 					}
 					else

@@ -78,10 +78,14 @@ public class Commands : MonoBehaviour {
 
 	public Interactable FindInventory(string input)
 	{
-		if (inventory.GetObjects ().Count > 0) {
-			foreach (Interactable item in inventory.GetObjects()) {
-				if (item.objectName.Length >= input.Length) {
-					if (item.objectName.ToLower ().Contains (input)) { //TODO: change from contains to match only the start of the monsterName ('at' should not find 'rat' in 'black rat')
+		if (inventory.GetObjects ().Count > 0)
+		{
+			foreach (Interactable item in inventory.GetObjects())
+			{
+				if (item.objectName.Length >= input.Length)
+				{
+					if (item.objectName.ToLower ().Contains (input)) 
+					{ //TODO: change from contains to match only the start of the monsterName ('at' should not find 'rat' in 'black rat')
 						return item;
 					}
 				}

@@ -4,6 +4,8 @@ using System.Collections;
 public class Interactable : MonoBehaviour {
 
 	private TextController textController;
+	private Commands commands;
+	public Inventory inventory;
 	
 	public string objectName = "";
 	bool discovered = false;
@@ -11,6 +13,8 @@ public class Interactable : MonoBehaviour {
 	bool pickup = false;
 	bool magnified = false;
 	bool fingerprint = false;
+	bool chemical = false;
+	bool photo = false;
 	string dust = "";
 	string detail = "";
 	string detail2 = "";
@@ -120,6 +124,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "safe";
 			discovered = false;
 			change = false;
+			photo = true;
 			desc = "A safe hidden behind the set. Requires a 3-digit passcode to open.";
 			zoomDesc = "There's got to be a passcode somewhere around here.";
 		}
@@ -147,8 +152,9 @@ public class Interactable : MonoBehaviour {
 			objectName = "set";
 			discovered = false;
 			change = false;
+			detail = "safe";
 			desc = "The set resembles a high security bank, with a pedastal for the diamond.";
-			zoomDesc = "Where once a diamond lay, there is now nothing.";
+			zoomDesc = "You see a bit of torn background. Behind it is a safe, with a three-digit lock.";
 		}
 		if(name.ToLower () == "camera stands")
 		{
@@ -252,6 +258,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "chemical wash";
 			discovered = false;
 			change = false;
+			chemical = true;
 			desc = "This is a chemical wash used for developing negatives. The room has to be kept dark, otherwise the film is ruined.";
 			zoomDesc = "Looks ready to take some negatives.";
 		}
@@ -358,6 +365,30 @@ public class Interactable : MonoBehaviour {
 		else 
 		{
 			return "Added to inventory.";
+		}
+	}
+
+	public string Chemical()
+	{
+		if (chemical == true) {
+			inventory.AddInteractable ("photos");
+			inventory.DeleteInteractable (commands.FindObject ("negatives"));
+			return "The negatives were turned into photos!";
+		}
+		else 
+		{
+			return "You can't do that.";
+		}
+	}
+	public string Win()
+	{
+		if (photo == true)
+		{
+			return "WARNING: Opening the safe requires a conviction. Are you ready to solve the mystery? (yes/no)";
+		}
+		else
+		{
+			return "You can't do that.";
 		}
 	}
 }
