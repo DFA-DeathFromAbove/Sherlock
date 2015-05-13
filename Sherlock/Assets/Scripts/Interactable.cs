@@ -56,6 +56,7 @@ public class Interactable : MonoBehaviour {
 			change = false;
 			pickup = true;
 			desc = "One of the director's. While the boot is clean, it certainly doesn't smell that way.";
+			zoomDesc = "Perhaps this sawdust came from the workshop.";
 		}
 		if (name.ToLower () == "director's chair") 
 		{
@@ -64,6 +65,7 @@ public class Interactable : MonoBehaviour {
 			change = false;
 			pickup = false;
 			desc = "This is the chair the director uses when filming.";
+			zoomDesc = "No more director now.";
 		}
 		if(name.ToLower () == "corpse")
 		{
@@ -85,6 +87,7 @@ public class Interactable : MonoBehaviour {
 			fingerprint = true;
 			desc = "This belongs to the director, and still has his ID in it. If there was any cash in it, it's gone now.";
 			dust = "The wallet has Richard's fingerprints on it.";
+			zoomDesc = "There is the ID, but no money. The director was never one to carry extensive amounts of bills with him";
 		}
 		if(name.ToLower () == "film reel")
 		{
@@ -95,6 +98,7 @@ public class Interactable : MonoBehaviour {
 			fingerprint = true;
 			desc = "One of the scenes from 'The Diamond Thief.' If I had a camera, I could take a close look at the film";
 			dust = "The film reel has Clara's fingerprints on it.";
+			zoomDesc = "Perhaps a projector could magnify the images on the film";
 		}
 		if(name.ToLower () == "painting")
 		{
@@ -102,13 +106,14 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "Some sort of post-modernism painting. The colors feel off, and the painting itself is atrocious.";
+			zoomDesc = "It only gets uglier the closer you look.";
 		}
 		if(name.ToLower () == "hidden passage")
 		{
 			objectName = "hidden passage";
 			discovered = false;
-			desc = "The passage seems to lead into the courtyard.";
-			zoomDesc = "The passage seems to lead into the courtyard. Nothing else is notable.";
+			desc = "The passage seems to lead into a dingy storage room.";
+			zoomDesc = "The passage seems to lead into the storage room. Nothing else is notable.";
 		}
 		if(name.ToLower () == "safe")
 		{
@@ -116,6 +121,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "A safe hidden behind the set. Requires a 3-digit passcode to open.";
+			zoomDesc = "There's got to be a passcode somewhere around here.";
 		}
 		if(name.ToLower () == "saw blade")
 		{
@@ -126,6 +132,7 @@ public class Interactable : MonoBehaviour {
 			fingerprint = true;
 			desc = "The murder weapon. It appears to be clean, but fingerprints might still linger.";
 			dust = "The saw blade has Gerrard's fingerprints on it.";
+			zoomDesc = "Sharp.";
 		}
 		if(name.ToLower () == "camera")
 		{
@@ -133,6 +140,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "A constant-wind camera. It appears to have some negatives inside the reel";
+			zoomDesc = "Those negatives are in a very prime and sensitive state.";
 		}
 		if(name.ToLower () == "set")
 		{
@@ -140,6 +148,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The set resembles a high security bank, with a pedastal for the diamond.";
+			zoomDesc = "Where once a diamond lay, there is now nothing.";
 		}
 		if(name.ToLower () == "camera stands")
 		{
@@ -147,6 +156,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "Various cameras are pointed at the set.";
+			zoomDesc = "One camera appears to be missing.";
 		}
 		if(name.ToLower () == "negatives")
 		{
@@ -155,6 +165,7 @@ public class Interactable : MonoBehaviour {
 			change = false;
 			pickup = true;
 			desc = "Some undeveloped film. Until it's developed, I have no idea what it's for.";
+			zoomDesc = "I can't see what's on the negatives.";
 		}
 		if(name.ToLower () == "costumes")
 		{
@@ -162,6 +173,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "Used by the actors and actresses of the film. Full of various costumes.";
+			zoomDesc = "Lots of fabric.";
 		}
 		if(name.ToLower () == "boot print")
 		{
@@ -177,6 +189,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "This looks like a table used for measuring and cutting wood, but the saw blade is missing.";
+			zoomDesc = "Lots of wood has been cut here.";
 		}
 		if(name.ToLower () == "tool cabinet")
 		{
@@ -184,6 +197,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The cabinet is filled with variuos tools, from hammers to wood glue.";
+			zoomDesc = "Nothing really important here.";
 		}
 		if(name.ToLower () == "props")
 		{
@@ -191,6 +205,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "Several props, finished and unfinished, are laying about. There's extreme detail in the work.";
+			zoomDesc = "The detail is quite impressive.";
 		}
 		if(name.ToLower () == "projector")
 		{
@@ -198,6 +213,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "This projector is most likely used to test the film, and ensure that the movie looks like what the director has in mind.";
+			zoomDesc = "Looks like it needs a film.";
 		}
 		if(name.ToLower () == "screen")
 		{
@@ -205,6 +221,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The screen is blank, since the projector isn't running anything right now.";
+			zoomDesc = "The projector is used to project an image onto the screen.";
 		}
 		if(name.ToLower () == "projection")
 		{
@@ -220,6 +237,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "Various film canisters lie about, each with various labels.";
+			zoomDesc = "Nothing super important to see.";
 		}
 		if(name.ToLower () == "ash tray")
 		{
@@ -227,6 +245,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The ash tray is cold, and hasn't been used recently. There's a used cigar resting in it.";
+			zoomDesc = "Cold ashes.";
 		}
 		if(name.ToLower () == "chemical wash")
 		{
@@ -234,6 +253,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "This is a chemical wash used for developing negatives. The room has to be kept dark, otherwise the film is ruined.";
+			zoomDesc = "Looks ready to take some negatives.";
 		}
 		if(name.ToLower () == "costume rack")
 		{
@@ -241,6 +261,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The rack has various costume, from ball gowns to a thief outfit.";
+			zoomDesc = "Many, many costumes.";
 		}
 		if(name.ToLower () == "makeup tables")
 		{
@@ -248,6 +269,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "Various kinds of makeup are strewn across the tables.";
+			zoomDesc = "Pretty.";
 		}
 		if(name.ToLower () == "mirrors")
 		{
@@ -255,6 +277,7 @@ public class Interactable : MonoBehaviour {
 			discovered = false;
 			change = false;
 			desc = "The mirrors are lit up, allowing the actors to get a better view.";
+			zoomDesc = "How beautiful of a person you are.";
 		}
 		if (name.ToLower () == "magnifying glass" || name.ToLower() == "magnifying") 
 		{
@@ -272,6 +295,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "photos";
 			desc = "The photo appears to have three numbers on it.";
 			pickup = true;
+			zoomDesc = "Upon closer examination, the number appear to be a 3-digit numerical sequence.";
 		}
 	}
 

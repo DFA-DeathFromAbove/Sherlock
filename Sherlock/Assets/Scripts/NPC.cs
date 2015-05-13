@@ -50,7 +50,7 @@ public class NPC : MonoBehaviour {
 			dialogue [14, 1] = "The set resembles a high security bank. I, the highly trained theif, break in to steal the diamond. That's the last scene we were filming.";
 			dialogue [15, 0] = "richard";
 			dialogue [15, 1] = "I'm the lead actor of the film. I play the diamond thief himself, 'Ricky Gonzalez.'";
-			dialogue [16, 0] = "gerrard";
+			dialogue [16, 0] = "gerard";
 			dialogue [16, 1] = "We don't talk much. He spends most of his time working on props in the wood shop. Seems like a very reserved person.";
 			dialogue [17, 0] = "clara";
 			dialogue [17, 1] = "She's one of our camera crew. I see her all the time on set, working one of the cameras.";
@@ -61,7 +61,7 @@ public class NPC : MonoBehaviour {
 			info = "Can I help you?";
 
 		}
-		if(name.ToLower() == "gerrard")
+		if(name.ToLower() == "gerard")
 		{
 			npcName = name;
 			dialogue [0, 0] = "";
@@ -92,7 +92,7 @@ public class NPC : MonoBehaviour {
 			dialogue [12, 1] = "I've been working on props to match this set. I designed the pedestal, as well as most of the other objects.";
 			dialogue [13, 0] = "richard";
 			dialogue [13, 1] = "He's the theif in the movie. He has a pretty big ego, if you ask me. Acting high and mighty all the time.";
-			dialogue [14, 0] = "gerrard";
+			dialogue [14, 0] = "gerard";
 			dialogue [14, 1] = "I lead the construction part of the movie. I designed and built most of the props you see on the stage.";
 			dialogue [15, 0] = "clara";
 			dialogue [15, 1] = "I don't see her too often back here. She usually is filming the movie, or chatting with the theif, Richard.";
@@ -110,7 +110,7 @@ public class NPC : MonoBehaviour {
 			dialogue [0, 1] = "What are you talking about? I haven't heard anything about ";
 			dialogue [1, 0] = "richard";
 			dialogue [1, 1] = "A great actor thus far. Has played the part exceptionally well.";
-			dialogue [2, 0] = "gerrard";
+			dialogue [2, 0] = "gerard";
 			dialogue [2, 1] = "Makes nice sets, works hard. Don't talk to him much otherwise";
 			dialogue [3, 0] = "clara";
 			dialogue [3, 1] = "I'm a camera operator. I work on many of the shots for the film.";

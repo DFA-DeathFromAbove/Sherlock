@@ -70,7 +70,7 @@ public class Maps : MonoBehaviour {
 	void SetRoomDescriptions()
 	{
 		theVoid.title = "Welcome";
-		theVoid.desc = "A director's body has been found at a film stage, and an exquisite diamond has been stolen. It is up to you to solve the mystery of 'The Diamond Thief'";
+		theVoid.desc = "It is the year 1920. A director's body has been found at a film stage, and an exquisite diamond has been stolen. It is up to you to solve the mystery of 'The Diamond Thief'";
 		theVoid.SwitchActive(true);
 		activeRoom = theVoid;
 		
@@ -96,7 +96,7 @@ public class Maps : MonoBehaviour {
 		mainArea[2].title = "Woodshop";
 		mainArea[2].desc = "Gerard is sitting in the corner. The room is full of sawdust, and unfinished prop pieces lie against every wall. Towards one end of the room lies a saw table.";
 		mainArea[2].east = mainArea[3];
-		mainArea [2].AddNPC ("Gerrard");
+		mainArea [2].AddNPC ("Gerard");
 		mainArea [2].AddInteractable ("boot print");
 		mainArea [2].AddInteractable ("cutting table");
 		mainArea [2].AddInteractable ("tool cabinet");
