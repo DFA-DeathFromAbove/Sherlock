@@ -431,7 +431,7 @@ public class TextController : MonoBehaviour {
 							AppendMain(commands.FindObject(inputArray[2+skip]).Dust());
 							return;
 						}
-						if(commands.FindInventory(inputArray[2+skip]) != null)
+						if(inventory.HasItem(inputArray[2+skip]) == true)
 						{
 							AppendMain(commands.FindInventory(inputArray[2+skip]).Dust());
 							return;

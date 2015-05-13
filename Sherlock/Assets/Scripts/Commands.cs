@@ -16,8 +16,8 @@ public class Commands : MonoBehaviour {
 	void Awake()
 	{
 		maps = GameObject.Find ("Scripts").GetComponent<Maps>();
-		inventory = GameObject.Find ("Scripts").GetComponent<Inventory> ();
 		textController = GameObject.Find ("Scripts").GetComponent<TextController>();
+		inventory = textController.inventory;
 		InitiateCommands();
 		Array.Sort(commands);
 	}
@@ -78,6 +78,8 @@ public class Commands : MonoBehaviour {
 
 	public Interactable FindInventory(string input)
 	{
+		inventory = textController.inventory;
+		Debug.Log (inventory.GetObjects ());
 		if (inventory.GetObjects ().Count > 0)
 		{
 			foreach (Interactable item in inventory.GetObjects())

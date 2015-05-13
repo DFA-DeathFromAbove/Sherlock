@@ -38,12 +38,19 @@ public class Inventory : MonoBehaviour {
 
 	public void ListAll()
 	{
-		Debug.Log (items.Count ());
 		textController.AppendMain ("Your inventory contains: ");
 		for (int i = 0; i < items.Count(); i++) {
 			textController.AppendMain (items[i].objectName);
 		}
 	}
+
+	/*public void DustItem(string item)
+	{
+		if(HasItem(item))
+		{
+			textController.AppendMain(commands.FindObject(item).Dust());
+		}
+	}*/
 	
 	public List<Interactable> GetObjects()
 	{
