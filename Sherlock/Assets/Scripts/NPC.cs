@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour {
 			dialogue [0, 1] = "I don't know anything about ";
 			dialogue [1, 0] = "murder";
 			dialogue [1, 1] = "When the murder happened, I was practicing my lines in the changing room.";
-			dialogue [2, 0] = "saw blade";
+			dialogue [2, 0] = "sawblade";
 			dialogue [2, 1] = "Sorry, I haven't seen that before. Looks like something used in the wood shop.";
 			dialogue [3, 0] = "boot";
 			dialogue [3, 1] = "The director always wore those around the set.";
@@ -68,14 +68,14 @@ public class NPC : MonoBehaviour {
 			dialogue [0, 1] = "What are you talking about? I haven't heard anything about ";
 			dialogue [1, 0] = "murder";
 			dialogue [1, 1] = "At the time, I was working on one of the props. He was always picky about them, asking me to change stuff last minute.";
-			dialogue [2, 0] = "saw blade";
+			dialogue [2, 0] = "sawblade";
 			dialogue [2, 1] = "That's the blade that went missing last night!";
 			dialogue [3, 0] = "boot";
 			dialogue [3, 1] = "I saw the director in those all the time. Surprised they're so clean, what with him coming in the shop all the time.";
 			dialogue [4, 0] = "boot print";
 			dialogue [4, 1] = "Yep, that's the directors all right. He wore those boots like his birthday suit.";
 			dialogue [5, 0] = "cutting table";
-			dialogue [5, 1] = "I use this all the time. Great for cutting up wood. Too bad I lost my saw blade last night...";
+			dialogue [5, 1] = "I use this all the time. Great for cutting up wood. Too bad I lost my sawblade last night...";
 			dialogue [6, 0] = "film reel";
 			dialogue [6, 1] = "Hey, I just work on props. I don't know anything about film or cameras.";
 			dialogue [7, 0] = "negative";
@@ -124,7 +124,7 @@ public class NPC : MonoBehaviour {
 			dialogue [7, 1] = "Looks like its from yesterday. Probably the developed takes.";
 			dialogue [8, 0] = "set";
 			dialogue [8, 1] = "Great design so far. The director likes to be a perfectionist, and our woodshop puts out some nice work.";
-			dialogue [9, 0] = "saw blade";
+			dialogue [9, 0] = "sawblade";
 			dialogue [9, 1] = "Looks like a blade from the woodshop.";
 			dialogue [10, 0] = "painting";
 			dialogue [10, 1] = "Never understood that painting. Not a great work of art in my opinion.";

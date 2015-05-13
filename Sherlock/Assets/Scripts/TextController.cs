@@ -155,16 +155,51 @@ public class TextController : MonoBehaviour {
 				return;
 			}
 		}
-		if (gameState == "Conversation")
+		if (gameState == "End Confirmation")
 		{
 
-		}
+			if(mainIn.text.ToLower() == "yes" || mainIn.text.ToLower() == "ye" || mainIn.text.ToLower() == "y")
+			{
+				AppendMain ("Please choose which suspect is the murderer: Richard or Gerard?");
+				gameState = "Accusation";
+				return;
+			}
+			else if(mainIn.text.ToLower() == "no" || mainIn.text.ToLower() == "n")
+			{
+				AppendMain("I think I'll come back when I have enough information.");
+				gameState = "Default";
+				return;
+			}
+			else
+			{
+				AppendMain("Please type yes or no.");
+				return;
+			}
 
+		}
+		if (gameState == "Accusation") 
+		{
+			
+			if(mainIn.text.ToLower() == "richard")
+			{
+				AppendMain("After thorough investigation, I've gathered enough evidence to say that Richard is the killer. While the murder weapon did have Gerard's fingerprints on it, it's seen in the most recent scene of the film that Richard was wearing gloves. Yet in his moment of greed, he removed the gloves to better access the wallet in the director's pocket. As proof, in this safe should be the diamond! \n\nYou open to safe to find the large diamond that disappeared. Richard is convicted of murder and sentenced to prison.\nGOOD END");
+				return;
+			}
+			else if(mainIn.text.ToLower() == "gerard")
+			{
+				AppendMain("After thorough investigation, I believe that Gerard is the true killer. After being constantly pressured by the director for perfection and receiving much critisism, he finally snapped, using one of his tool to kill the director. His fingerprints are clearly on it, and as proof, the boot print in the shop matches the directors. \n\n The police arrest Gerard, who is constantly claiming he is innocent. Upon opening the safe you find that the diamond is not there, and during the arrest, Richard is nowhere to be seen.\nBAD END");
+				return;
+			}
+			else
+			{
+				AppendMain("Please choose one of the suspects.");
+				return;
+			}
+		}
 		if(gameState == "Reset")
 		{
 			if(mainIn.text.ToLower() == "yes")
 			{
-				player.Reset();
 				Reset();
 				return;
 			}
@@ -357,16 +392,6 @@ public class TextController : MonoBehaviour {
 				}
 				if(inputArray.Count() > 1)
 				{
-					if(inputArray[1] == "secret")
-					{
-						//if(secretFound)
-						if(true)
-						{
-							AppendMain("You enter a hidden passage.");
-							maps.SetActive("hidden",0);
-							return;
-						}
-					}
 					if(commands.FindObject(inputArray[1]) != null)
 					{
 						AppendMain(commands.FindObject(inputArray[1]).Interact());
@@ -391,10 +416,12 @@ public class TextController : MonoBehaviour {
 					if(inventory.HasItem(inputArray[1]) == true)
 					{
 						AppendMain ("Use "+inputArray[1]+" on what?");
+						return;
 					}
 					else
 					{
 						AppendMain ("You don't have " + inputArray[1] + ".");
+						return;
 					}
 				}
 				if(inputArray.Count() > 2)
@@ -446,15 +473,12 @@ public class TextController : MonoBehaviour {
 						if(commands.FindObject(inputArray[2+skip]) != null)
 						{
 							AppendMain(commands.FindObject(inputArray[2+skip]).Chemical());
+							return;
 						}
 					}
-					if(inputArray[1].ToLower() == "film" && inventory.HasItem("film reel") == true)
+					if(inputArray[1].ToLower() == "filmreel" && inventory.HasItem("filmreel") == true)
 					{
-						if(inputArray[1].ToLower() == "film" && inputArray[2].ToLower() == "reel")
-						{
-							skip++;
-						}
-						if(inputArray[2].ToLower() == "on")
+						if(inputArray[2+skip].ToLower() == "on")
 						{
 							skip++;
 						}
@@ -462,8 +486,9 @@ public class TextController : MonoBehaviour {
 						{
 							AppendMain("You turn the projector on, and the screen starts to show images.");
 							maps.ActiveRoom().AddInteractable("projection");
-							inventory.DeleteInteractable(commands.FindObject("film reel"));
+							inventory.DeleteInteractable(commands.FindObject("filmreel"));
 							maps.ActiveRoom().DeleteInteractable(commands.FindObject("screen"));
+							return;
 						}
 					}
 					if(inputArray[1].ToLower() == "photos" && inventory.HasItem("photos") == true)
@@ -474,12 +499,14 @@ public class TextController : MonoBehaviour {
 						}
 						if(commands.FindObject(inputArray[2+skip]) != null)
 						{
-							AppendMain (commands.FindObject(inputArray[2+skip]).Win());
+							commands.FindObject(inputArray[2+skip]).Win();
+							return;
 						}
 					}
 					else
 					{
 						AppendMain("You can't do that.");
+						return;
 					}
 				}
 			}
@@ -501,6 +528,7 @@ public class TextController : MonoBehaviour {
 					else
 					{
 						AppendMain("That person is not here.");
+						return;
 					}
 				}
 				if(inputArray.Count() > 2)
@@ -522,6 +550,7 @@ public class TextController : MonoBehaviour {
 					else
 					{
 						AppendMain("That person is not here.");
+						return;
 					}
 				}
 			}
@@ -530,7 +559,7 @@ public class TextController : MonoBehaviour {
 	
 	private void Reset()
 	{
-		
+		Application.LoadLevel ("main");
 	}
 	
 	public void SetGameState(string newGameState)

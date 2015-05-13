@@ -79,7 +79,6 @@ public class Commands : MonoBehaviour {
 	public Interactable FindInventory(string input)
 	{
 		inventory = textController.inventory;
-		Debug.Log (inventory.GetObjects ());
 		if (inventory.GetObjects ().Count > 0)
 		{
 			foreach (Interactable item in inventory.GetObjects())

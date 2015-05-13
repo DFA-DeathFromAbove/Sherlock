@@ -43,18 +43,17 @@ public class Inventory : MonoBehaviour {
 			textController.AppendMain (items[i].objectName);
 		}
 	}
-
-	/*public void DustItem(string item)
-	{
-		if(HasItem(item))
-		{
-			textController.AppendMain(commands.FindObject(item).Dust());
-		}
-	}*/
 	
 	public List<Interactable> GetObjects()
 	{
 		return items;
+	}
+
+	public void InventoryReset()
+	{
+		items.Clear ();
+		AddInteractable ("magnifying glass");
+		AddInteractable ("fingerprint kit");
 	}
 
 	public void DeleteInteractable(Interactable item)

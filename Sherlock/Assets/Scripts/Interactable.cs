@@ -26,6 +26,7 @@ public class Interactable : MonoBehaviour {
 	public void Awake()
 	{
 		textController = GameObject.Find("Scripts").GetComponent<TextController>();
+		commands = GameObject.Find ("Scripts").GetComponent<Commands>();
 	}
 	
 	public void SetupObject(string name)
@@ -49,9 +50,9 @@ public class Interactable : MonoBehaviour {
 			desc = "The desk is covered in film and scripts.";
 			changeDesc = "After pushing the desk aside, you discover a hidden passage.";
 			secret = "Hidden Passage";
-			detail = "film reel";
+			detail = "filmreel";
 			magnified = false;
-			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Thief.' Ironic. There's also a film reel.";
+			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Thief.' Ironic. There's also a filmreel for the movie on it. Looks like the desk was moved recently...";
 		}
 		if(name.ToLower () == "boot")
 		{
@@ -93,15 +94,15 @@ public class Interactable : MonoBehaviour {
 			dust = "The wallet has Richard's fingerprints on it.";
 			zoomDesc = "There is the ID, but no money. The director was never one to carry extensive amounts of bills with him";
 		}
-		if(name.ToLower () == "film reel")
+		if(name.ToLower () == "filmreel")
 		{
-			objectName = "film reel";
+			objectName = "filmreel";
 			discovered = false;
 			change = false;
 			pickup = true;
 			fingerprint = true;
 			desc = "One of the scenes from 'The Diamond Thief.' If I had a camera, I could take a close look at the film";
-			dust = "The film reel has Clara's fingerprints on it.";
+			dust = "The filmreel has Clara's fingerprints on it.";
 			zoomDesc = "Perhaps a projector could magnify the images on the film";
 		}
 		if(name.ToLower () == "painting")
@@ -116,7 +117,7 @@ public class Interactable : MonoBehaviour {
 		{
 			objectName = "hidden passage";
 			discovered = false;
-			desc = "The passage seems to lead into a dingy storage room.";
+			desc = "The passage seems to lead down into a dingy storage room. (type 'd' to go down, 'u' to come back up)";
 			zoomDesc = "The passage seems to lead into the storage room. Nothing else is notable.";
 		}
 		if(name.ToLower () == "safe")
@@ -128,15 +129,15 @@ public class Interactable : MonoBehaviour {
 			desc = "A safe hidden behind the set. Requires a 3-digit passcode to open.";
 			zoomDesc = "There's got to be a passcode somewhere around here.";
 		}
-		if(name.ToLower () == "saw blade")
+		if(name.ToLower () == "sawblade")
 		{
-			objectName = "saw blade";
+			objectName = "sawblade";
 			discovered = false;
 			change = false;
 			pickup = true;
 			fingerprint = true;
 			desc = "The murder weapon. It appears to be clean, but fingerprints might still linger.";
-			dust = "The saw blade has Gerrard's fingerprints on it.";
+			dust = "The sawblade has Gerrard's fingerprints on it.";
 			zoomDesc = "Sharp.";
 		}
 		if(name.ToLower () == "camera")
@@ -194,7 +195,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "cutting table";
 			discovered = false;
 			change = false;
-			desc = "This looks like a table used for measuring and cutting wood, but the saw blade is missing.";
+			desc = "This looks like a table used for measuring and cutting wood, but the sawblade is missing.";
 			zoomDesc = "Lots of wood has been cut here.";
 		}
 		if(name.ToLower () == "tool cabinet")
@@ -325,6 +326,10 @@ public class Interactable : MonoBehaviour {
 		{
 			textController.GetMaps().ActiveRoom().AddInteractable(secret);
 		}
+		if (objectName == "desk") 
+		{
+			textController.GetMaps().ActivateHidden();
+		}
 		return changeDesc;
 	}
 
@@ -371,8 +376,8 @@ public class Interactable : MonoBehaviour {
 	public string Chemical()
 	{
 		if (chemical == true) {
-			inventory.AddInteractable ("photos");
-			inventory.DeleteInteractable (commands.FindObject ("negatives"));
+			textController.inventory.AddInteractable ("photos");
+			textController.inventory.DeleteInteractable (commands.FindInventory ("negatives"));
 			return "The negatives were turned into photos!";
 		}
 		else 
@@ -380,15 +385,17 @@ public class Interactable : MonoBehaviour {
 			return "You can't do that.";
 		}
 	}
-	public string Win()
+	public void Win()
 	{
+		Debug.Log (photo);
 		if (photo == true)
 		{
-			return "WARNING: Opening the safe requires a conviction. Are you ready to solve the mystery? (yes/no)";
+			textController.AppendMain("WARNING: Opening the safe requires a conviction. Are you ready to solve the mystery? (yes/no)");
+			textController.gameState = "End Confirmation";
 		}
 		else
 		{
-			return "You can't do that.";
+			textController.AppendMain("You can't do that.");
 		}
 	}
 }

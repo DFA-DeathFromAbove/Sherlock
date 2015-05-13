@@ -61,6 +61,12 @@ public class Maps : MonoBehaviour {
 		activeRoom = room;
 		activeRoom.SwitchActive();
 	}
+
+	public void ActivateHidden()
+	{
+		mainArea [0].down = hiddenArea [0];
+		hiddenArea [0].up = mainArea [0];
+	}
 	
 	public Room ActiveRoom()
 	{
@@ -116,7 +122,7 @@ public class Maps : MonoBehaviour {
 		mainArea[4].desc = "A dimly, red-lit room lies through the narrow passages. In front of you lies a large chemical wash and lines from which negatives would be strung.";
 		mainArea[4].north = mainArea[3];
 		mainArea [4].AddInteractable ("chemical wash");
-		mainArea [4].AddInteractable ("saw blade");
+		mainArea [4].AddInteractable ("sawblade");
 		
 		mainArea[5].title = "Changing Room";
 		mainArea[5].desc = "A large, bright room that contains numerous make-up tables, a costume rack, and mirrors.";
