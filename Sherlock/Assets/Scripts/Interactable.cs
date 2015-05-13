@@ -47,7 +47,7 @@ public class Interactable : MonoBehaviour {
 			secret = "Hidden Passage";
 			detail = "film reel";
 			magnified = false;
-			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Theif.' Ironic. There's also a film reel.";
+			zoomDesc = "One of the scripts has the name of the movie. It's called 'The Diamond Thief.' Ironic. There's also a film reel.";
 		}
 		if(name.ToLower () == "boot")
 		{
@@ -211,7 +211,7 @@ public class Interactable : MonoBehaviour {
 			objectName = "projection";
 			discovered = false;
 			change = false;
-			desc = "The last few scenes of 'The Diamond Theif' play on the screen. You see something in the bottom right corner that's out of place.";
+			desc = "The last few scenes of 'The Diamond Thief' play on the screen. You see something in the bottom right corner that's out of place.";
 			zoomDesc = "You see the shadow of Richard, the main actor. He's wearing gloves, and looks poised to steal the diamond.";
 		}
 		if(name.ToLower () == "film canisters")

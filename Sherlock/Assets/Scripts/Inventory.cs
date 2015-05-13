@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour {
 	public void ListAll()
 	{
 		Debug.Log (items.Count ());
-		textController.AppendMain ("You're inventory contains: ");
+		textController.AppendMain ("Your inventory contains: ");
 		for (int i = 0; i < items.Count(); i++) {
 			textController.AppendMain (items[i].objectName);
 		}
